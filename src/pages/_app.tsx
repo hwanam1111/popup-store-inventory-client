@@ -3,6 +3,8 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import NextNProgress from 'nextjs-progressbar';
+import Cookies from 'universal-cookie';
+import setLanguage from 'next-translate/setLanguage';
 
 import ResetStyles from '@styles/reset';
 import GlobalStyles from '@styles/global';
@@ -11,8 +13,31 @@ import SweetAlert2Styles from '@styles/sweet-alert2';
 import { ThemeProvider } from '@styles/theme-component';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { COOKIE_NEXT_LOCALE } from '@constants/cookie-namespace';
 
 function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const cookies = new Cookies();
+
+  useEffect(() => {
+    const browserLang = navigator.language.toLocaleLowerCase();
+
+    if (!cookies.get('NEXT_LOCALE')) {
+      if (browserLang === 'ko' || browserLang.indexOf('ko-') !== -1) {
+        setLanguage('ko');
+      } else {
+        setLanguage('en-US');
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    cookies.set(COOKIE_NEXT_LOCALE, router.locale, {
+      path: '/',
+      expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
+    });
+  }, [router.locale]);
+
   const [onMounted, setOnMounted] = useState<boolean>(false);
   useEffect(() => {
     setOnMounted(true);
@@ -29,7 +54,6 @@ function App({ Component, pageProps }: AppProps) {
         },
       }),
   );
-  const router = useRouter();
 
   useEffect(() => {
     window.history.scrollRestoration = 'auto';
