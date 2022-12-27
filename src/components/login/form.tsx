@@ -13,6 +13,7 @@ import FormLabel from '@ui/form/form-label';
 import FormSubmitButton from '@ui/form/form-submit-button';
 import useLogin from '@apis/users/mutations/login';
 import { sweetAlert } from '@libs/sweet-alert2';
+import useFetchMe from '@apis/users/queries/fetch-me';
 
 const Container = styled.div`
   display: flex;
@@ -60,6 +61,7 @@ interface LoginFormInput {
 export default function LoginForm() {
   const { i18n: commonI18n } = useI18n(I18N_COMMON);
   const { i18n } = useI18n(I18N_AUTH_LOGIN);
+  const { refetch: refetchMe } = useFetchMe();
 
   const {
     register,
@@ -89,7 +91,17 @@ export default function LoginForm() {
                 expires: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 365),
               });
 
-              Router.push('/');
+              refetchMe()
+                .then(() => {
+                  Router.push('/');
+                })
+                .catch(() => {
+                  sweetAlert.fire({
+                    icon: 'error',
+                    titleText: commonI18n('api.server-error.message'),
+                    confirmButtonText: commonI18n('api.server-error.confirm-button'),
+                  });
+                });
             }
           },
           onError: () => {
