@@ -1,0 +1,30 @@
+{
+  "meta-title": "로그인",
+  "guide": {
+    "title": "로그인을 해주세요.",
+    "message": "만약, 추가로 계정이 필요하다면, 관리자에게 문의해주세요."
+  },
+  "form": {
+    "title": "로그인",
+    "email": {
+      "label": "이메일",
+      "placeholder": "이메일을 입력해주세요.",
+      "error": {
+        "require": "이메일을 입력해주세요."
+      }
+    },
+    "password": {
+      "label": "비밀번호",
+      "placeholder": "비밀번호를 입력해주세요.",
+      "error": {
+        "require": "비밀번호를 입력해주세요."
+      }
+    },
+    "submit-button": "로그인",
+    "result": {
+      "error": {
+        "user-not-found": "이메일 또는 비밀번호가 일치하지 않습니다."
+      }
+    }
+  }
+}

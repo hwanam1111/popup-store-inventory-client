@@ -1,0 +1,8 @@
+{
+  "api": {
+    "server-error": {
+      "message": "서버에러가 발생했습니다. 관리자에게 문의 부탁드립니다.",
+      "confirm-button": "확인"
+    }
+  }
+}

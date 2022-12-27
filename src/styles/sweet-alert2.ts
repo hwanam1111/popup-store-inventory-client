@@ -17,13 +17,13 @@ export default createGlobalStyle`
 
   .swal2-popup-class {
     display: block !important;
-    width: calc(100% - 60px) !important;
+    width: 500px !important;
     padding: 0 1rem !important;
     margin: 0 60px !important;
   }
 
   .swal2-icon-class {
-    margin: 0 auto !important;
+    margin: 46px auto 0 auto !important;
     border: 0.15rem solid !important;
   }
 
@@ -41,10 +41,10 @@ export default createGlobalStyle`
   }
 
   .swal2-title {
-    margin-top: 46px !important;
+    margin-top: 30px !important;
     text-align: center !important;
     color: #161D24 !important;
-    font-size: 0.875rem !important;
+    font-size: 1rem !important;
     line-height: 1.375rem !important;
     font-weight: 400 !important;
   }
