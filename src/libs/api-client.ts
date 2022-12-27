@@ -10,8 +10,8 @@ async function axiosInterceptor({ ...options }): Promise<any> {
     const cookies = new Cookies();
     const token = cookies.get(process.env.JWT_COOKIE_NAME);
 
-    if (!request.headers.Authorization) {
-      request.headers.Authorization = token || '';
+    if (!request.headers['x-jwt']) {
+      request.headers['x-jwt'] = token || '';
     }
 
     return request;
