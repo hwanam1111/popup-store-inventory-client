@@ -4,9 +4,7 @@ import styled from 'styled-components';
 
 const RootContainer = styled.main<{ backgroundColor?: string }>`
   position: relative;
-  max-width: 768px;
-  margin: -1px auto 0 auto;
-  padding-top: 1px;
+  margin: 0 auto;
   background-color: ${({ backgroundColor }) => backgroundColor || 'unset'};
 `;
 

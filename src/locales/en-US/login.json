@@ -1,0 +1,25 @@
+{
+  "meta-title": "Login",
+  "guide": {
+    "title": "Please log in",
+    "message": "If you need an additional account, please contact the administrator."
+  },
+  "form": {
+    "title": "Login",
+    "email": {
+      "label": "Email",
+      "placeholder": "Please enter your email address",
+      "error": {
+        "require": "Please enter your email address"
+      }
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Please enter your password",
+      "error": {
+        "require": "Please enter your password"
+      }
+    },
+    "submit-button": "Login"
+  }
+}
