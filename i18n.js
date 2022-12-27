@@ -2,6 +2,7 @@ module.exports = {
   locales: ['ko', 'en-US'],
   defaultLocale: 'ko',
   pages: {
+    '*': ['common'],
     '/': ['home'],
     '/auth/login': ['login'],
   },

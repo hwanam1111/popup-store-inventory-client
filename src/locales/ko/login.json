@@ -20,6 +20,11 @@
         "require": "비밀번호를 입력해주세요."
       }
     },
-    "submit-button": "로그인"
+    "submit-button": "로그인",
+    "result": {
+      "error": {
+        "user-not-found": "이메일 또는 비밀번호가 일치하지 않습니다."
+      }
+    }
   }
 }

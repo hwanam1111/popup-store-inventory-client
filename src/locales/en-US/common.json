@@ -1,0 +1,8 @@
+{
+  "api": {
+    "server-error": {
+      "message": "A server error has occurred. Please contact the administrator.",
+      "confirm-button": "Confirm"
+    }
+  }
+}

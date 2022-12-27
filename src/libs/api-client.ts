@@ -20,13 +20,6 @@ async function axiosInterceptor({ ...options }): Promise<any> {
   const onSuccess = (response: any) => response;
 
   const onError = (error: any) => {
-    if (error?.response.data === undefined || error?.response.data === null) {
-      error.response.data = {
-        ok: false,
-        error: 'server-error',
-      };
-    }
-
     return Promise.reject(error);
   };
 

@@ -20,6 +20,11 @@
         "require": "Please enter your password"
       }
     },
-    "submit-button": "Login"
+    "submit-button": "Login",
+    "result": {
+      "error": {
+        "user-not-found": "Email or password does not match."
+      }
+    }
   }
 }
