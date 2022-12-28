@@ -5,6 +5,7 @@ import Router from 'next/router';
 
 import LayoutHeader from '@components/layout/header';
 import useFetchMe from '@apis/users/queries/fetch-me';
+import LayoutNavigation from '@components/layout/navigation';
 
 const RootContainer = styled.div<{ backgroundColor?: string }>`
   position: relative;
@@ -44,7 +45,12 @@ export default function RootLayout({ children, metaTitle, backgroundColor, isLog
             <meta name="description" content="팝업스토어 재고관리" />
             <title>{metaTitle}</title>
           </Head>
-          {!isLoginPage && <LayoutHeader me={meData.me} />}
+          {!isLoginPage && (
+            <>
+              <LayoutHeader me={meData.me} />
+              <LayoutNavigation />
+            </>
+          )}
           <main>{children}</main>
         </RootContainer>
       )}
