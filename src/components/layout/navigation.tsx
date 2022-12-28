@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import LayoutNavigationMenu from '@components/layout/navigation-menu';
+import LayoutNavigationMenuItem from '@components/layout/navigation-menu-item';
 
 const Container = styled.nav`
   position: fixed;
@@ -24,11 +24,11 @@ export default function LayoutNavigation() {
   return (
     <Container>
       <MenuList>
-        <LayoutNavigationMenu imageName="dashboard" menuName="Dashboard" />
-        <LayoutNavigationMenu imageName="germany" menuName="Germany" />
-        <LayoutNavigationMenu imageName="belgium" menuName="Belgium" />
-        <LayoutNavigationMenu imageName="spain" menuName="Spain" />
-        <LayoutNavigationMenu imageName="france" menuName="France" />
+        <LayoutNavigationMenuItem imageName="dashboard" menuName="Dashboard" />
+        <LayoutNavigationMenuItem imageName="germany" menuName="Germany" />
+        <LayoutNavigationMenuItem imageName="belgium" menuName="Belgium" />
+        <LayoutNavigationMenuItem imageName="spain" menuName="Spain" />
+        <LayoutNavigationMenuItem imageName="france" menuName="France" />
       </MenuList>
     </Container>
   );

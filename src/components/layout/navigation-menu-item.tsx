@@ -32,12 +32,12 @@ const MenuName = styled.span`
   color: ${({ theme }) => theme.color.G80};
 `;
 
-interface LayoutNavigationMenuProps {
+interface LayoutNavigationMenuItemProps {
   imageName: string;
   menuName: string;
 }
 
-export default function LayoutNavigationMenu({ imageName, menuName }: LayoutNavigationMenuProps) {
+export default function LayoutNavigationMenuItem({ imageName, menuName }: LayoutNavigationMenuItemProps) {
   return (
     <Item>
       <Link href="">
