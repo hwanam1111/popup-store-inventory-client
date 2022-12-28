@@ -24,11 +24,11 @@ export default function LayoutNavigation() {
   return (
     <Container>
       <MenuList>
-        <LayoutNavigationMenuItem imageName="dashboard" menuName="All Countries" />
-        <LayoutNavigationMenuItem imageName="germany" menuName="Germany" />
-        <LayoutNavigationMenuItem imageName="belgium" menuName="Belgium" />
-        <LayoutNavigationMenuItem imageName="spain" menuName="Spain" />
-        <LayoutNavigationMenuItem imageName="france" menuName="France" />
+        <LayoutNavigationMenuItem country="all" imageName="dashboard" menuName="All Countries" />
+        <LayoutNavigationMenuItem country="germany" imageName="germany" menuName="Germany" />
+        <LayoutNavigationMenuItem country="belgium" imageName="belgium" menuName="Belgium" />
+        <LayoutNavigationMenuItem country="spain" imageName="spain" menuName="Spain" />
+        <LayoutNavigationMenuItem country="france" imageName="france" menuName="France" />
       </MenuList>
     </Container>
   );

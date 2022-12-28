@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 const Item = styled.li``;
@@ -15,37 +16,41 @@ const MenuLink = styled.a`
   }
 `;
 
-const ImageBlock = styled.div`
+const ImageBlock = styled.div<{ active: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 3.75rem;
   height: 3.75rem;
-  background-color: ${({ theme }) => theme.color.G0};
+  background-color: ${({ active, theme }) => (active ? theme.color.G30 : theme.color.G0)};
   padding: 0.5rem;
   border-radius: 0.5rem;
 `;
 
-const MenuName = styled.span`
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: ${({ theme }) => theme.color.G80};
+const MenuName = styled.span<{ active: boolean }>`
+  font-size: 0.725rem;
+  font-weight: ${({ active }) => (active ? 900 : 600)};
+  color: ${({ active, theme }) => (active ? theme.color.PP600 : theme.color.G80)};
 `;
 
 interface LayoutNavigationMenuItemProps {
+  country: string;
   imageName: string;
   menuName: string;
 }
 
-export default function LayoutNavigationMenuItem({ imageName, menuName }: LayoutNavigationMenuItemProps) {
+export default function LayoutNavigationMenuItem({ country, imageName, menuName }: LayoutNavigationMenuItemProps) {
+  const { query } = useRouter();
+  const currentCountry = query.country as string;
+
   return (
     <Item>
-      <Link href="">
+      <Link href="/countries/[country]/dashboard" as={`/countries/${country}/dashboard`}>
         <MenuLink>
-          <ImageBlock>
+          <ImageBlock active={currentCountry === country}>
             <img src={`/images/${imageName}.png`} alt={menuName} />
           </ImageBlock>
-          <MenuName>{menuName}</MenuName>
+          <MenuName active={currentCountry === country}>{menuName}</MenuName>
         </MenuLink>
       </Link>
     </Item>
