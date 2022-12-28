@@ -1,3 +1,15 @@
 {
-  "meta-title": "상품 등록"
+  "meta-title": "상품 등록",
+  "form": {
+    "title": "상품 등록",
+    "message": "먼저 상품의 바코드를 스캔 후 나머지 정보를 입력해주세요.",
+    "barcode": {
+      "label": "바코드 번호",
+      "placeholder": "상품의 바코드를 스캔해주세요.",
+      "error": {
+        "require": "상품의 바코드를 스캔해주세요."
+      }
+    },
+    "submit-button": "상품 등록"
+  }
 }
