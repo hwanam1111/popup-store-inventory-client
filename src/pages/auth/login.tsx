@@ -7,7 +7,7 @@ export default function LoginPage() {
   const { i18n } = useI18n(I18N_AUTH_LOGIN);
 
   return (
-    <RootLayout metaTitle={i18n('meta-title')}>
+    <RootLayout metaTitle={i18n('meta-title')} isLoginPage>
       <Login />
     </RootLayout>
   );

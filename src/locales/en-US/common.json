@@ -1,4 +1,16 @@
 {
+  "layout": {
+    "current-lang": "English",
+    "logout": "Logout",
+    "main-section-menu": {
+      "dashboard": "Dashboard",
+      "scan-product": "Product forwarding (Scan)",
+      "create-product": "Create Product",
+      "products-list": "Products List",
+      "products-inventory-status": "Products Inventory",
+      "revenue": "Revenue"
+    }
+  },
   "api": {
     "server-error": {
       "message": "A server error has occurred. Please contact the administrator.",

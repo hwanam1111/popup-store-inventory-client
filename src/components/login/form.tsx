@@ -146,7 +146,7 @@ export default function LoginForm() {
             {errors.password?.type === 'required' && <FormError message={i18n('form.password.error.require')} />}
           </FormInputBlock>
         </FormInputContainer>
-        <SubmitButton isLoading={false} disabled={!isValid} text={i18n('form.submit-button')} />
+        <SubmitButton isLoading={isLoading} disabled={!isValid} text={i18n('form.submit-button')} />
         {loginResult?.error?.message === 'user-not-found' && (
           <FormError message={i18n(`form.result.error.${loginResult?.error?.message}`)} />
         )}
