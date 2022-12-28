@@ -24,7 +24,7 @@ export default function LayoutNavigation() {
   return (
     <Container>
       <MenuList>
-        <LayoutNavigationMenuItem imageName="dashboard" menuName="Dashboard" />
+        <LayoutNavigationMenuItem imageName="dashboard" menuName="All Countries" />
         <LayoutNavigationMenuItem imageName="germany" menuName="Germany" />
         <LayoutNavigationMenuItem imageName="belgium" menuName="Belgium" />
         <LayoutNavigationMenuItem imageName="spain" menuName="Spain" />
