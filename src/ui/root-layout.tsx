@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Router from 'next/router';
 
 import LayoutHeader from '@components/layout/header';
 import useFetchMe from '@apis/users/queries/fetch-me';
 import LayoutNavigation from '@components/layout/navigation';
+import LayoutMainSectionMenu from '@components/layout/main-section-menu';
 
 const RootContainer = styled.div<{ backgroundColor?: string }>`
   position: relative;
@@ -13,14 +14,33 @@ const RootContainer = styled.div<{ backgroundColor?: string }>`
   background-color: ${({ backgroundColor }) => backgroundColor || 'unset'};
 `;
 
+const Main = styled.main<{ isLoginPage: boolean }>`
+  position: relative;
+
+  ${({ isLoginPage }) =>
+    !isLoginPage &&
+    css`
+      left: 100px;
+      width: calc(100% - 100px);
+      padding: 2rem;
+    `};
+`;
+
 interface RootLayoutProps {
   children: React.ReactNode;
   metaTitle: string;
   backgroundColor?: string;
   isLoginPage?: boolean;
+  hideMainSectionMenu?: boolean;
 }
 
-export default function RootLayout({ children, metaTitle, backgroundColor, isLoginPage = false }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+  metaTitle,
+  backgroundColor,
+  isLoginPage = false,
+  hideMainSectionMenu = false,
+}: RootLayoutProps) {
   const { data: meData } = useFetchMe();
 
   useEffect(() => {
@@ -51,7 +71,10 @@ export default function RootLayout({ children, metaTitle, backgroundColor, isLog
               <LayoutNavigation />
             </>
           )}
-          <main>{children}</main>
+          <Main isLoginPage={isLoginPage}>
+            {!hideMainSectionMenu && !isLoginPage && <LayoutMainSectionMenu />}
+            {children}
+          </Main>
         </RootContainer>
       )}
     </>
