@@ -1,4 +1,8 @@
 {
+  "layout": {
+    "current-lang": "English",
+    "logout": "Logout"
+  },
   "api": {
     "server-error": {
       "message": "A server error has occurred. Please contact the administrator.",
