@@ -11,7 +11,11 @@ import localesName from '@constants/locales-name';
 import useI18n from '@hooks/useI18n';
 
 const Container = styled.header`
+  position: fixed;
+  left: 0;
+  top: 0;
   display: flex;
+  z-index: 1;
   align-items: center;
   background-color: ${({ theme }) => theme.color.G0};
   border-bottom: 1px solid ${({ theme }) => theme.color.G20};

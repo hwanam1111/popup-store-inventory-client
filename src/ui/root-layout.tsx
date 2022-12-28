@@ -21,6 +21,7 @@ const Main = styled.main<{ isLoginPage: boolean }>`
   ${({ isLoginPage }) =>
     !isLoginPage &&
     css`
+      top: 70px;
       left: 100px;
       width: calc(100% - 100px);
       padding: 2rem;
