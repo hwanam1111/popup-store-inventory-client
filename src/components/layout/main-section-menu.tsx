@@ -23,38 +23,32 @@ export default function LayoutMainSectionMenu() {
       <MenuList>
         <LayoutMainSectionMenuItem
           menuName={i18n('layout.main-section-menu.dashboard')}
-          menuLink=""
-          imageBgColor="#c1ffdb69"
+          menuSlug="dashboard"
           imageName="dashboard"
         />
         <LayoutMainSectionMenuItem
           menuName={i18n('layout.main-section-menu.scan-product')}
-          menuLink=""
-          imageBgColor="#faffc56f"
+          menuSlug="product-forwarding"
           imageName="barcode-scan"
         />
         <LayoutMainSectionMenuItem
           menuName={i18n('layout.main-section-menu.create-product')}
-          menuLink=""
-          imageBgColor="#d0ffffa4"
+          menuSlug="create-product"
           imageName="create-product"
         />
         <LayoutMainSectionMenuItem
           menuName={i18n('layout.main-section-menu.products-list')}
-          menuLink=""
-          imageBgColor="#d49e9e37"
+          menuSlug="products-list"
           imageName="product-list"
         />
         <LayoutMainSectionMenuItem
           menuName={i18n('layout.main-section-menu.products-inventory-status')}
-          menuLink=""
-          imageBgColor="#82aae339"
+          menuSlug="products-inventory"
           imageName="inventory"
         />
         <LayoutMainSectionMenuItem
           menuName={i18n('layout.main-section-menu.revenue')}
-          menuLink=""
-          imageBgColor="#c37aff3e"
+          menuSlug="revenue"
           imageName="revenue"
         />
       </MenuList>
