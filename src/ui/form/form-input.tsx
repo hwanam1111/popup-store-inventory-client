@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-const Input = styled.input`
+const Input = styled.input<{ readOnly: boolean }>`
   width: 100%;
   font-size: 0.875rem;
   padding: 0.875rem 1rem;
@@ -10,6 +10,7 @@ const Input = styled.input`
   color: ${({ theme }) => theme.color.G80};
   border: 1px solid ${({ theme }) => theme.color.G30};
   border-radius: 0.25rem;
+  pointer-events: ${({ readOnly }) => (readOnly ? 'none' : 'all')};
 
   &:focus {
     border-color: ${({ theme }) => theme.color.G40};

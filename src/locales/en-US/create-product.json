@@ -1,3 +1,72 @@
 {
-  "meta-title": "상품 등록"
+  "meta-title": "productRegistration",
+  "form": {
+    "title": "Product registration",
+    "message": "You can scan the barcode to enter the rest of the product information.",
+    "barcode": {
+      "label": "Barcode number",
+      "placeholder": "Please scan the barcode of the product.(Can't enter direct input)",
+      "error": {
+        "require": "Please scan the barcode of the product."
+      }
+    },
+    "selling-country": {
+      "label": "Sales Country",
+      "radio": {
+        "germany": "germany",
+        "belgium": "Belgium",
+        "spain": "Spain",
+        "france": "France"
+      },
+      "error": {
+        "require": "Please select a country to sell."
+      }
+    },
+    "product-image": {
+      "label": "Product Image",
+      "upload-title": "registration"
+    },
+    "product-name": {
+      "label": "product name",
+      "placeholder": "Please enter the product name.",
+      "error": {
+        "require": "Please enter the product name."
+      }
+    },
+    "product-quantity": {
+      "label": "Product quantity",
+      "placeholder": "Please enter the product quantity.",
+      "error": {
+        "require": "Please enter the product quantity."
+      }
+    },
+    "selling-currency": {
+      "label": "Sales call",
+      "radio": {
+        "EUR": "Euro (€)",
+        "USD": "Dollar ($)",
+        "KRW": "Won (₩)"
+      },
+      "error": {
+        "require": "Please select the call to sell."
+      }
+    },
+    "product-amount": {
+      "label": "Product price",
+      "placeholder": "Please enter the product price.",
+      "error": {
+        "require": "Please enter the product price."
+      }
+    },
+    "submit-button": "Product registration",
+    "result": {
+      "success": {
+        "message": "Product registration has been completed."
+      },
+      "error": {
+        "exist-product": "There are already registered countries and barcodes."
+      },
+      "confirm-button": "Confirm"
+    }
+  }
 }
