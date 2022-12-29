@@ -1,0 +1,16 @@
+{
+  "meta-title": "Product List",
+  "page-title": "Product List",
+  "table": {
+    "th": {
+      "barcode": "Barcode Number",
+      "product-name": "Product Name",
+      "product-amount": "Selling Price",
+      "selling-country": "Sales Country",
+      "product-quantity": "Total Product Quantity",
+      "sold-quantity": "Product Quantity Sold",
+      "remaining-quantity": "Product Quantity Remaining"
+    }
+  },
+  "have-not-products": "No Product Registered"
+}
