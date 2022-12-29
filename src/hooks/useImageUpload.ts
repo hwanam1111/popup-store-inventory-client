@@ -33,7 +33,7 @@ export default ({ input, maxFileSize, fileUploadPath, uploadFileTitle, defaultIm
           }
 
           formData.append('image', file);
-          formData.append('path', fileUploadPath);
+          formData.append('directory', fileUploadPath);
         });
 
         if (isOverSize) {
