@@ -155,8 +155,6 @@ export default function LayoutHeader({ me }: LayoutHeaderProps) {
     router.reload();
   }, []);
 
-  // TODO: 프로필 셋팅
-
   return (
     <Container>
       <Logo>
