@@ -46,7 +46,7 @@ export default function ProductsList() {
   const { query } = useRouter();
   const country = (query.country as string).replace(/\b[a-z]/, (text) => text.toUpperCase());
   const [page, onChangePage] = usePagination(1);
-  const limit = 1;
+  const limit = 30;
   const { data: productsData } = useFetchProducts({
     limit,
     page,
