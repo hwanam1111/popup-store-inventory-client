@@ -155,8 +155,6 @@ export default function LayoutHeader({ me }: LayoutHeaderProps) {
     router.reload();
   }, []);
 
-  // TODO: 프로필 셋팅
-
   return (
     <Container>
       <Logo>
@@ -172,7 +170,7 @@ export default function LayoutHeader({ me }: LayoutHeaderProps) {
             {langBlockOpend && (
               <LangBlock>
                 {router.locales.map((lang) => (
-                  <Link key={lang} href={router.query.page ? router.pathname : router.asPath} locale={lang}>
+                  <Link key={lang} href={router.asPath} locale={lang}>
                     <ChangeLang active={lang === router.locale}>{localesName[lang]}</ChangeLang>
                   </Link>
                 ))}

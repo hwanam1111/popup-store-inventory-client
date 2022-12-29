@@ -1,0 +1,16 @@
+{
+  "meta-title": "상품 목록",
+  "page-title": "상품 목록",
+  "table": {
+    "th": {
+      "barcode": "바코드 번호",
+      "product-name": "상품명",
+      "product-amount": "판매가격",
+      "selling-country": "판매국가",
+      "product-quantity": "전체 상품 수량",
+      "sold-quantity": "판매된 상품 수량",
+      "remaining-quantity": "남은 상품 수량"
+    }
+  },
+  "have-not-products": "등록된 상품이 없습니다."
+}

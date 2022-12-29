@@ -3,4 +3,7 @@ export default {
     ALL: ['all'],
     ME: ['me'],
   },
+  PRODUCTS: {
+    ALL: ['all'],
+  },
 };

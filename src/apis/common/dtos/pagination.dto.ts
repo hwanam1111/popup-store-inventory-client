@@ -1,7 +1,6 @@
-export interface PaginationInput<T> {
+export interface PaginationInput {
   page: number;
   limit: number;
-  sortProperty: T;
 }
 
 export interface PaginationOutput {
