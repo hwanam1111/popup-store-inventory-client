@@ -1,0 +1,22 @@
+{
+  "meta-title": "Product release",
+  "page-title": "Product release",
+  "forwarding-product": {
+    "info": {
+      "barcode": "Barcode number",
+      "forwarded-time": "Delivery time",
+      "selling-country": "Country",
+      "product-amount": "Product price",
+      "remaining-quantity": "Product remaining quantity",
+      "forwarded-quantity": "Quantity shipped",
+      "forwarded-user": "User who shipped"
+    },
+    "result": {
+      "error": {
+        "product-not-found": "Product does not exist.",
+        "out-of-inventory": "Product is not in stock."
+      },
+      "confirm-button": "Confirm"
+    }
+  }
+}
