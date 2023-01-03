@@ -27,6 +27,14 @@ const ProductImage = styled.img`
   background-color: ${({ theme }) => theme.color.BG30};
   padding: 0.5rem;
   width: 100%;
+  min-height: 200px;
+`;
+
+const ScanProductPlaceholder = styled.p`
+  color: ${({ theme }) => theme.color.G60};
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 1.5rem;
 `;
 
 const ProducInfoBlock = styled.div`
@@ -98,51 +106,56 @@ export default function ForwardedProduct() {
 
   return (
     <Container>
+      {!isForwardingProductLoading && !forwardedProductData?.forwardedProduct && (
+        <>
+          <ProductImage src="/images/blank-image.svg" />
+          <ScanProductPlaceholder>{i18n('forwarding-product.placeholder')}</ScanProductPlaceholder>
+        </>
+      )}
       {isForwardingProductLoading && <ComponentLoading color="#222" />}
-      {isForwardingProductLoading ||
-        (forwardedProductData?.forwardedProduct && (
-          <>
-            <ProductImage src={forwardedProductData.forwardedProduct.productImage} />
-            <ProducInfoBlock>
-              <ProductName>{forwardedProductData.forwardedProduct.productName}</ProductName>
-              <ProductInfoItem>
-                {`${i18n('forwarding-product.info.barcode')} : ${forwardedProductData.forwardedProduct.barcode}`}
-              </ProductInfoItem>
-              <ProductInfoItem>
-                {`${i18n('forwarding-product.info.forwarded-time')} : ${dateToString({
-                  date: new Date(forwardedProductData.forwardedProduct.createdAt),
-                  addTime: true,
-                  convertStringType: 'hypen',
-                })}`}
-              </ProductInfoItem>
-              <ProductInfoItem>
-                {`${i18n('forwarding-product.info.selling-country')} : ${
-                  forwardedProductData.forwardedProduct.sellingCountry
-                }`}
-              </ProductInfoItem>
-              <ProductInfoItem>
-                {`${i18n('forwarding-product.info.product-amount')} : ${
-                  forwardedProductData.forwardedProduct.sellingCurrency
-                } ${numberWithComma(forwardedProductData.forwardedProduct.productAmount)}`}
-              </ProductInfoItem>
-              <ProductInfoItem>
-                {`${i18n('forwarding-product.info.remaining-quantity')} : ${numberWithComma(
-                  forwardedProductData.forwardedProduct.remainingQuantity,
-                )}`}
-              </ProductInfoItem>
-              <ProductInfoItem>
-                {`${i18n('forwarding-product.info.forwarded-quantity')} : ${numberWithComma(
-                  forwardedProductData.forwardedCount,
-                )}`}
-              </ProductInfoItem>
-              <ProductInfoItem>
-                {`${i18n('forwarding-product.info.forwarded-user')} : ${
-                  forwardedProductData.forwardedProduct.productForwardedUser.name
-                }`}
-              </ProductInfoItem>
-            </ProducInfoBlock>
-          </>
-        ))}
+      {forwardedProductData?.forwardedProduct && (
+        <>
+          <ProductImage src={forwardedProductData.forwardedProduct.productImage} />
+          <ProducInfoBlock>
+            <ProductName>{forwardedProductData.forwardedProduct.productName}</ProductName>
+            <ProductInfoItem>
+              {`${i18n('forwarding-product.info.barcode')} : ${forwardedProductData.forwardedProduct.barcode}`}
+            </ProductInfoItem>
+            <ProductInfoItem>
+              {`${i18n('forwarding-product.info.forwarded-time')} : ${dateToString({
+                date: new Date(forwardedProductData.forwardedProduct.createdAt),
+                addTime: true,
+                convertStringType: 'hypen',
+              })}`}
+            </ProductInfoItem>
+            <ProductInfoItem>
+              {`${i18n('forwarding-product.info.selling-country')} : ${
+                forwardedProductData.forwardedProduct.sellingCountry
+              }`}
+            </ProductInfoItem>
+            <ProductInfoItem>
+              {`${i18n('forwarding-product.info.product-amount')} : ${
+                forwardedProductData.forwardedProduct.sellingCurrency
+              } ${numberWithComma(forwardedProductData.forwardedProduct.productAmount)}`}
+            </ProductInfoItem>
+            <ProductInfoItem>
+              {`${i18n('forwarding-product.info.remaining-quantity')} : ${numberWithComma(
+                forwardedProductData.forwardedProduct.remainingQuantity,
+              )}`}
+            </ProductInfoItem>
+            <ProductInfoItem>
+              {`${i18n('forwarding-product.info.forwarded-quantity')} : ${numberWithComma(
+                forwardedProductData.forwardedCount,
+              )}`}
+            </ProductInfoItem>
+            <ProductInfoItem>
+              {`${i18n('forwarding-product.info.forwarded-user')} : ${
+                forwardedProductData.forwardedProduct.productForwardedUser.name
+              }`}
+            </ProductInfoItem>
+          </ProducInfoBlock>
+        </>
+      )}
     </Container>
   );
 }

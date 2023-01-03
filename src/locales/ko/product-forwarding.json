@@ -3,6 +3,7 @@
   "page-title": "상품 출고",
   "cannot-be-done": "상품 출고는 국가를 선택 후 가능합니다.",
   "forwarding-product": {
+    "placeholder": "이곳에 스캔된 상품이 표시됩니다.",
     "info": {
       "barcode": "바코드 번호",
       "forwarded-time": "출고시간",
