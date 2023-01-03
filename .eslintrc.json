@@ -42,6 +42,7 @@
     "react/jsx-no-useless-fragment": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "consistent-return": "off",
+    "prefer-destructuring": "off",
     "no-param-reassign": "off",
     "no-unused-vars": "off",
     "no-alert": "off",

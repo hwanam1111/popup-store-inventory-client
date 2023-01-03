@@ -1,43 +1,48 @@
-export type ConvertStringType = 'hypen' | 'dot' | 'korean';
+import moment from 'moment-timezone';
+
+import LocalStorage from '@utils/local-storage';
+import { TIMEZONE } from '@constants/local-storage-keys';
+import timezones from '@constants/timezones';
+
+export type ConvertStringType = 'hypen' | 'dot';
 
 interface DateToStringProps {
   date: Date;
   convertStringType: ConvertStringType;
   addTime?: boolean;
-  cutYear?: boolean;
+  addTimeZoneCityName?: boolean;
 }
 
-export default ({ date, convertStringType, addTime = false, cutYear = false }: DateToStringProps): string => {
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day = date.getDate().toString().padStart(2, '0');
-  const hours = date.getHours().toString().padStart(2, '0');
-  const minutes = date.getMinutes().toString().padStart(2, '0');
-  const seconds = date.getSeconds().toString().padStart(2, '0');
+export default ({
+  date,
+  convertStringType,
+  addTime = false,
+  addTimeZoneCityName = false,
+}: DateToStringProps): string => {
+  const timezone = LocalStorage.getItem(TIMEZONE) || timezones[0].value;
 
-  let year = date.getFullYear().toString();
-  if (cutYear) {
-    year = year.substring(2, 4).padStart(2, '0');
-  }
-
-  let result: string = '';
+  let convertedDate: string = '';
 
   switch (convertStringType) {
     case 'hypen':
-      result = `${year}-${month}-${day}`;
+      convertedDate = moment.tz(date, timezone).format('YYYY-MM-DD HH:mm:ss');
       break;
     case 'dot':
-      result = `${year}.${month}.${day}`;
-      break;
-    case 'korean':
-      result = `${year}년${month}월${day}일`;
+      convertedDate = moment.tz(date, timezone).format('YYYY.MM.DD HH:mm:ss');
       break;
     default:
       break;
   }
 
-  if (addTime) {
-    result += ` ${hours}:${minutes}:${seconds}`;
+  if (addTime === false) {
+    convertedDate = convertedDate.split(' ')[0];
   }
 
-  return result;
+  if (addTimeZoneCityName === true) {
+    convertedDate = `(${
+      timezones.find((tz) => tz.value === LocalStorage.getItem(TIMEZONE))?.name.split(', ')[0]
+    } Time) ${convertedDate}`;
+  }
+
+  return convertedDate;
 };

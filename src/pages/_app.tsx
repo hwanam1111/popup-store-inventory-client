@@ -6,6 +6,11 @@ import NextNProgress from 'nextjs-progressbar';
 import Cookies from 'universal-cookie';
 import setLanguage from 'next-translate/setLanguage';
 
+import { COOKIE_NEXT_LOCALE } from '@constants/cookie-namespace';
+import LocalStorage from '@utils/local-storage';
+import { TIMEZONE } from '@constants/local-storage-keys';
+import timezones from '@constants/timezones';
+
 import ResetStyles from '@styles/reset';
 import GlobalStyles from '@styles/global';
 import theme from '@styles/theme';
@@ -13,7 +18,6 @@ import SweetAlert2Styles from '@styles/sweet-alert2';
 import { ThemeProvider } from '@styles/theme-component';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { COOKIE_NEXT_LOCALE } from '@constants/cookie-namespace';
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -37,6 +41,13 @@ function App({ Component, pageProps }: AppProps) {
       expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
     });
   }, [router.locale]);
+
+  useEffect(() => {
+    const defaultTimezone = LocalStorage.getItem(TIMEZONE);
+    if (!defaultTimezone) {
+      LocalStorage.setItem(TIMEZONE, timezones[0].value);
+    }
+  }, []);
 
   const [onMounted, setOnMounted] = useState<boolean>(false);
   useEffect(() => {
