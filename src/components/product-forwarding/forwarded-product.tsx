@@ -53,17 +53,18 @@ export default function ForwardedProduct() {
   const { query } = useRouter();
   const country = (query.country as string).replace(/\b[a-z]/, (text) => text.toUpperCase());
 
-  const { isScanBarcodeStart, barcodeValue, onResetBarcodeValue } = useScanBarcode();
+  const { finalBarcode, onResetBarcodeValue } = useScanBarcode();
+
   const {
     isLoading: isForwardingProductLoading,
     mutate: forwardingProductMutate,
     data: forwardedProductData,
   } = useForwardingProduct();
   useEffect(() => {
-    if (isScanBarcodeStart === false && barcodeValue !== '' && !isForwardingProductLoading) {
+    if (finalBarcode !== '' && !isForwardingProductLoading) {
       forwardingProductMutate(
         {
-          barcode: barcodeValue,
+          barcode: finalBarcode,
           sellingCountry: country as CountryName,
         },
         {
@@ -90,9 +91,10 @@ export default function ForwardedProduct() {
           },
         },
       );
-      onResetBarcodeValue();
     }
-  }, [isScanBarcodeStart, barcodeValue, isForwardingProductLoading]);
+
+    onResetBarcodeValue();
+  }, [finalBarcode, isForwardingProductLoading]);
 
   return (
     <Container>

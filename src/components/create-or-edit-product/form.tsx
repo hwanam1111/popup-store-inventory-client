@@ -76,13 +76,13 @@ export default function CreateOrEditProductForm() {
     mode: 'all',
   });
 
-  const { isScanBarcodeStart, barcodeValue, onResetBarcodeValue } = useScanBarcode();
+  const { isScanBarcodeStart, finalBarcode, onResetBarcodeValue } = useScanBarcode();
   useEffect(() => {
-    if (isScanBarcodeStart === false && barcodeValue !== '') {
-      setValue('barcode', barcodeValue);
+    if (isScanBarcodeStart === false && finalBarcode !== '') {
+      setValue('barcode', finalBarcode);
       onResetBarcodeValue();
     }
-  }, [isScanBarcodeStart, barcodeValue]);
+  }, [isScanBarcodeStart, finalBarcode]);
 
   const [productImage, setProductImage] = useState<string | null>(null);
 

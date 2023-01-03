@@ -5,6 +5,7 @@ import { I18N_PRODUCT_FORWARDING } from '@constants/i18n-namespace';
 import useI18n from '@hooks/useI18n';
 import MainSectionTitle from '@ui/main-section-title';
 import ForwardedProduct from '@components/product-forwarding/forwarded-product';
+import ForwardedProductsHistory from '@components/product-forwarding/forwarded-history';
 
 const Container = styled.div`
   margin: 3rem auto 0 auto;
@@ -30,6 +31,7 @@ export default function ProductForwarding() {
       <MainSectionTitle title={i18n('page-title')} />
       <ContentBlock>
         <ForwardedProduct />
+        <ForwardedProductsHistory />
       </ContentBlock>
     </Container>
   );
