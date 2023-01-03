@@ -11,7 +11,7 @@ import { CountryName } from '@apis/countries/entities/country.entity';
 
 const Container = styled.div`
   margin: 3rem auto 0 auto;
-  padding: 0 3rem;
+  padding: 0 1rem;
 `;
 
 const ContentBlock = styled.div`

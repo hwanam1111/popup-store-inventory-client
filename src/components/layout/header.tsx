@@ -29,16 +29,6 @@ const Logo = styled.div`
   align-items: center;
   gap: 0.325rem;
   width: 250px;
-
-  & > span {
-    padding-top: 0.25rem;
-    background: -webkit-linear-gradient(-70deg, #3d9ad8 0%, #b6d8ff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.875rem;
-    font-weight: 900;
-  }
 `;
 
 const HeaderContentBlock = styled.div`
@@ -158,8 +148,7 @@ export default function LayoutHeader({ me }: LayoutHeaderProps) {
   return (
     <Container>
       <Logo>
-        <img src="/images/symbol.png" alt="logo symbol" width={42} />
-        <span>POPUP STORE</span>
+        <img src="/images/logo.png" alt="logo" width={184} />
       </Logo>
       <HeaderContentBlock>
         <OutsideClickHandler onOutsideClick={onLangBlockClosed}>
