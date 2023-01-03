@@ -28,7 +28,7 @@ const ImageBlock = styled.div<{ active: boolean }>`
 `;
 
 const MenuName = styled.span<{ active: boolean }>`
-  font-size: 0.725rem;
+  font-size: 0.7rem;
   font-weight: ${({ active }) => (active ? 900 : 600)};
   color: ${({ active, theme }) => (active ? theme.color.PP600 : theme.color.G80)};
 `;

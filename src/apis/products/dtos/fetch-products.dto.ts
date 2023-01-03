@@ -6,11 +6,6 @@ export interface FetchProductsInput extends PaginationInput {
   sellingCountry?: CountryName;
 }
 
-interface InventoryOutput {
-  remainingQuantity: number;
-  soldQuantity: number;
-}
-
 export interface FetchProductsOutput extends PaginationOutput {
-  products?: (ProductEntity & InventoryOutput)[];
+  products?: (ProductEntity & { remainingQuantity: number; soldQuantity: number })[];
 }

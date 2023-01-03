@@ -5,5 +5,6 @@ export default {
   },
   PRODUCTS: {
     ALL: ['all'],
+    FORWARDED: ['forwarded'],
   },
 };

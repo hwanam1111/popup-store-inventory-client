@@ -33,6 +33,7 @@ const ImageBlock = styled.div<{ active: boolean }>`
 
 const MenuName = styled.span<{ active: boolean }>`
   font-weight: ${({ active }) => (active ? 900 : 600)};
+  font-size: 0.925rem;
   color: ${({ active, theme }) => (active ? theme.color.PP600 : theme.color.G80)};
 `;
 

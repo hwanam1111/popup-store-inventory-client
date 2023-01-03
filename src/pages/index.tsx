@@ -9,6 +9,10 @@ export default function Home() {
     if (meData?.me) {
       Router.replace('/countries/[country]/dashboard', '/countries/all/dashboard');
     }
+
+    if (meData?.me === null) {
+      Router.replace('/auth/login');
+    }
   }, [meData]);
 
   return <div />;
