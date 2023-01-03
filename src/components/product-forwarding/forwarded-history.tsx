@@ -64,6 +64,7 @@ export default function ForwardedProductsHistory({ forwardedProducts }: Forwarde
                   date: new Date(product.createdAt),
                   convertStringType: 'hypen',
                   addTime: true,
+                  addTimeZoneCityName: true,
                 })}
               </td>
               <td>{product.productName}</td>
