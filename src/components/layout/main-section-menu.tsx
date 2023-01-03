@@ -12,7 +12,7 @@ const Container = styled.nav`
 const MenuList = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding: 0 1rem;
   gap: 5rem;
 `;
 
