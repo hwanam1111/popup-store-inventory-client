@@ -20,5 +20,18 @@
       },
       "confirm-button": "Confirm"
     }
+  },
+  "forwarded-history": {
+    "table": {
+      "th": {
+        "forwarded-time": "Shipping time",
+        "product-name": "Product name",
+        "barcode": "Barcode number",
+        "selling-country": "Shipment country",
+        "product-amount": "Product price",
+        "forwarded-user-name": "The user shipped"
+      }
+    },
+    "have-not-products": "There is no product shipped."
   }
 }

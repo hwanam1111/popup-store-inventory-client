@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import { RefetchOptions, RefetchQueryFilters, QueryObserverResult } from 'react-query';
 
 import { I18N_COMMON, I18N_PRODUCT_FORWARDING } from '@constants/i18n-namespace';
 import useI18n from '@hooks/useI18n';
@@ -11,6 +12,8 @@ import { sweetAlert } from '@libs/sweet-alert2';
 import ComponentLoading from '@ui/loading-component';
 import dateToString from '@utils/date-to-string';
 import numberWithComma from '@utils/number-with-comma';
+import { FetchForwardedProductsOutput } from '@apis/products/dtos/fetch-forwarded-products.dto';
+import { AxiosError } from 'axios';
 
 const Container = styled.div`
   display: flex;
@@ -19,6 +22,7 @@ const Container = styled.div`
   border-radius: 0.625rem;
   padding: 1rem;
   width: 250px;
+  height: 100%;
 `;
 
 const ProductImage = styled.img`
@@ -54,7 +58,13 @@ const ProductName = styled.h2`
   font-weight: 600;
 `;
 
-export default function ForwardedProduct() {
+interface ForwardedProductProps {
+  refetchForwardedProducts: <TPageData>(
+    options?: RefetchOptions & RefetchQueryFilters<TPageData>,
+  ) => Promise<QueryObserverResult<FetchForwardedProductsOutput, AxiosError<FetchForwardedProductsOutput>>>;
+}
+
+export default function ForwardedProduct({ refetchForwardedProducts }: ForwardedProductProps) {
   const { i18n: commonI18n } = useI18n(I18N_COMMON);
   const { i18n } = useI18n(I18N_PRODUCT_FORWARDING);
   const router = useRouter();
@@ -62,7 +72,6 @@ export default function ForwardedProduct() {
   const country = (query.country as string).replace(/\b[a-z]/, (text) => text.toUpperCase());
 
   const { finalBarcode, onResetBarcodeValue } = useScanBarcode();
-
   const {
     isLoading: isForwardingProductLoading,
     mutate: forwardingProductMutate,
@@ -76,6 +85,11 @@ export default function ForwardedProduct() {
           sellingCountry: country as CountryName,
         },
         {
+          onSuccess: (result) => {
+            if (result?.ok) {
+              refetchForwardedProducts();
+            }
+          },
           onError: (err) => {
             if (err.response?.data?.error) {
               return sweetAlert.fire({
