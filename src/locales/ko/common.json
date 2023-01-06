@@ -8,7 +8,7 @@
       "scan-product": "상품출고 (바코드스캔)",
       "create-product": "상품등록",
       "products-list": "상품목록",
-      "products-inventory-status": "재고현황",
+      "forwarded-products-history": "출고기록",
       "revenue": "매출"
     }
   },
