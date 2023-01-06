@@ -1,4 +1,16 @@
 {
   "meta-title": "출고 기록",
-  "page-title": "출고 기록"
+  "page-title": "출고 기록",
+  "table": {
+    "th": {
+      "forwarded-time": "출고시간",
+      "product-name": "상품명",
+      "barcode": "바코드 번호",
+      "selling-country": "출고국가",
+      "product-amount": "상품가격",
+      "forwarded-user-name": "출고한 유저",
+      "remaining-quantity": "남은 재고수량"
+    }
+  },
+  "have-not-products": "출고된 상품이 없습니다."
 }

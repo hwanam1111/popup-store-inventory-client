@@ -1,0 +1,16 @@
+{
+  "meta-title": "Shipping record",
+  "page-title": "Shipping record",
+  "table": {
+    "th": {
+      "forwarded-time": "Shipping time",
+      "product-name": "Product name",
+      "barcode": "Barcode number",
+      "selling-country": "Shipping country",
+      "product-amount": "Product price",
+      "forwarded-user-name": "Shipping user",
+      "remaining-quantity": "Remaining inventory"
+    }
+  },
+  "have-not-products": "No products have been shipped."
+}
