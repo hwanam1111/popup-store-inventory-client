@@ -42,8 +42,8 @@ export default function LayoutMainSectionMenu() {
           imageName="product-list"
         />
         <LayoutMainSectionMenuItem
-          menuName={i18n('layout.main-section-menu.products-inventory-status')}
-          menuSlug="products-inventory"
+          menuName={i18n('layout.main-section-menu.forwarded-products-history')}
+          menuSlug="forwarded-products-history"
           imageName="inventory"
         />
         <LayoutMainSectionMenuItem

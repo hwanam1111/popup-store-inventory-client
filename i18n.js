@@ -8,6 +8,7 @@ module.exports = {
     '/countries/[country]/create-product': ['create-product'],
     '/countries/[country]/products-list': ['products-list'],
     '/countries/[country]/product-forwarding': ['product-forwarding'],
+    '/countries/[country]/forwarded-products-history': ['forwarded-products-history'],
   },
   loadLocaleFrom: (locale, namespace) =>
     import(`./src/locales/${locale}/${namespace}`).then((m) => m.default),

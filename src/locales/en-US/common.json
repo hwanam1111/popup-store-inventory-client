@@ -7,7 +7,7 @@
       "scan-product": "Product forwarding (Scan)",
       "create-product": "Create Product",
       "products-list": "Products List",
-      "products-inventory-status": "Products Inventory",
+      "forwarded-products-history": "Shipping record",
       "revenue": "Revenue"
     }
   },
