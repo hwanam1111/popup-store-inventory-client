@@ -45,6 +45,7 @@ export default function ForwardedProductsHistory({ forwardedProducts }: Forwarde
           th={[
             '',
             i18n('forwarded-history.table.th.forwarded-time'),
+            i18n('forwarded-history.table.th.history-type'),
             i18n('forwarded-history.table.th.product-name'),
             i18n('forwarded-history.table.th.barcode'),
             i18n('forwarded-history.table.th.selling-country'),
@@ -67,6 +68,7 @@ export default function ForwardedProductsHistory({ forwardedProducts }: Forwarde
                   addTimeZoneCityName: true,
                 })}
               </td>
+              <td>{product.forwardHistoryType}</td>
               <td>{product.productName}</td>
               <td>{product.barcode}</td>
               <td>{product.sellingCountry}</td>
