@@ -4,6 +4,7 @@
   "table": {
     "th": {
       "forwarded-time": "Shipping time",
+      "history-type": "Shipping Type",
       "product-name": "Product name",
       "barcode": "Barcode number",
       "selling-country": "Shipping country",

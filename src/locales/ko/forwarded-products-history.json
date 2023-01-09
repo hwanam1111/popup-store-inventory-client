@@ -3,7 +3,8 @@
   "page-title": "출고 기록",
   "table": {
     "th": {
-      "forwarded-time": "출고시간",
+      "forwarded-time": "출고, 출고취소 시간",
+      "history-type": "출고 타입",
       "product-name": "상품명",
       "barcode": "바코드 번호",
       "selling-country": "출고국가",

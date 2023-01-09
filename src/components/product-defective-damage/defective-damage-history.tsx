@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { ProductForwardEntity } from '@apis/products/entities/product-forward.entity';
-import { I18N_PRODUCT_FORWARDING } from '@constants/i18n-namespace';
+import { I18N_DEFECTIVE_DAMAGE_PRODUCT } from '@constants/i18n-namespace';
 import useI18n from '@hooks/useI18n';
 import Table from '@ui/table';
 import numberWithComma from '@utils/number-with-comma';
@@ -32,28 +32,28 @@ const ProductImage = styled(LazyLoadImage)`
 const HaveNotProducts = styled.p``;
 
 interface ForwardedProductsHistoryProps {
-  forwardedProducts: ProductForwardEntity[];
+  defectiveDamageProducts: ProductForwardEntity[];
 }
 
-export default function ForwardedProductsHistory({ forwardedProducts }: ForwardedProductsHistoryProps) {
-  const { i18n } = useI18n(I18N_PRODUCT_FORWARDING);
+export default function DefectiveDamageProductsHistory({ defectiveDamageProducts }: ForwardedProductsHistoryProps) {
+  const { i18n } = useI18n(I18N_DEFECTIVE_DAMAGE_PRODUCT);
 
   return (
     <ContentBlock>
-      {forwardedProducts.length > 0 ? (
+      {defectiveDamageProducts.length > 0 ? (
         <Table
           th={[
             '',
-            i18n('forwarded-history.table.th.forwarded-time'),
-            i18n('forwarded-history.table.th.history-type'),
-            i18n('forwarded-history.table.th.product-name'),
-            i18n('forwarded-history.table.th.barcode'),
-            i18n('forwarded-history.table.th.selling-country'),
-            i18n('forwarded-history.table.th.product-amount'),
-            i18n('forwarded-history.table.th.forwarded-user-name'),
+            i18n('defective-damage-history.table.th.checked-time'),
+            i18n('defective-damage-history.table.th.reason'),
+            i18n('defective-damage-history.table.th.product-name'),
+            i18n('defective-damage-history.table.th.barcode'),
+            i18n('defective-damage-history.table.th.selling-country'),
+            i18n('defective-damage-history.table.th.product-amount'),
+            i18n('defective-damage-history.table.th.checked-user-name'),
           ]}
         >
-          {forwardedProducts.map((product) => (
+          {defectiveDamageProducts.map((product) => (
             <tr key={product.id}>
               <td>
                 <ProductImageBlock>
@@ -68,7 +68,7 @@ export default function ForwardedProductsHistory({ forwardedProducts }: Forwarde
                   addTimeZoneCityName: true,
                 })}
               </td>
-              <td>{product.forwardHistoryType}</td>
+              <td>{product.memo}</td>
               <td>{product.productName}</td>
               <td>{product.barcode}</td>
               <td>{product.sellingCountry}</td>
@@ -80,7 +80,7 @@ export default function ForwardedProductsHistory({ forwardedProducts }: Forwarde
           ))}
         </Table>
       ) : (
-        <HaveNotProducts>{i18n('forwarded-history.have-not-products')}</HaveNotProducts>
+        <HaveNotProducts>{i18n('defective-damage-history.have-not-products')}</HaveNotProducts>
       )}
     </ContentBlock>
   );

@@ -9,10 +9,10 @@ import {
 } from '@apis/products/dtos/fetch-product-by-barcode.dto';
 
 export async function fetchProductByBarcode(fetchProductByBarcodeInput: FetchProductByBarcodeInput) {
-  const { barcode } = fetchProductByBarcodeInput;
+  const { barcode, sellingCountry } = fetchProductByBarcodeInput;
 
   const result = await apiClient({
-    url: `/v1/products/barcode/${barcode}`,
+    url: `/v1/products/barcode/${barcode}${sellingCountry ? `?sellingCountry=${sellingCountry}` : ''}`,
     method: 'GET',
   });
 
@@ -22,12 +22,16 @@ export async function fetchProductByBarcode(fetchProductByBarcodeInput: FetchPro
 function useFetchProductByBarcode(
   fetchProductByBarcodeInput: FetchProductByBarcodeInput,
 ): UseQueryResult<FetchProductByBarcodeOutput, AxiosError<FetchProductByBarcodeOutput>> {
-  const { barcode } = fetchProductByBarcodeInput;
+  const { barcode, sellingCountry } = fetchProductByBarcodeInput;
 
-  return useQuery([queryKeys.PRODUCTS.ALL, barcode], () => fetchProductByBarcode(fetchProductByBarcodeInput), {
-    select: ({ data }) => data,
-    enabled: !!barcode,
-  });
+  return useQuery(
+    [queryKeys.PRODUCTS.ALL, barcode, sellingCountry],
+    () => fetchProductByBarcode(fetchProductByBarcodeInput),
+    {
+      select: ({ data }) => data,
+      enabled: !!barcode,
+    },
+  );
 }
 
 export default useFetchProductByBarcode;

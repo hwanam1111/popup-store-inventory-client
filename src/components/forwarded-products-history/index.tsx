@@ -141,6 +141,7 @@ export default function ForwardedProductsList() {
               th={[
                 '',
                 i18n('table.th.forwarded-time'),
+                i18n('table.th.history-type'),
                 i18n('table.th.product-name'),
                 i18n('table.th.barcode'),
                 i18n('table.th.selling-country'),
@@ -164,6 +165,7 @@ export default function ForwardedProductsList() {
                       addTimeZoneCityName: true,
                     })}
                   </td>
+                  <td>{product.forwardHistoryType}</td>
                   <td>{product.productName}</td>
                   <td>{product.barcode}</td>
                   <td>{product.sellingCountry}</td>
@@ -178,7 +180,7 @@ export default function ForwardedProductsList() {
           ) : (
             <HaveNotProducts>{i18n('have-not-products')}</HaveNotProducts>
           ))}
-        {forwardedHistoryData?.forwardedProducts.length > 0 && (
+        {forwardedHistoryData?.forwardedProducts?.length > 0 && (
           <Pagination
             page={page}
             onChangePage={onChangePage}

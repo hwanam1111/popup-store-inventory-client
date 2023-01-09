@@ -7,5 +7,10 @@ export interface FetchProductsInput extends PaginationInput {
 }
 
 export interface FetchProductsOutput extends PaginationOutput {
-  products?: (ProductEntity & { remainingQuantity: number; soldQuantity: number })[];
+  products?: (ProductEntity & {
+    canceledCount: number;
+    soldQuantity: number;
+    defectiveQuantity: number;
+    damageQuantity: number;
+  })[];
 }
