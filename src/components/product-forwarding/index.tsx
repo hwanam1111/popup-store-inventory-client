@@ -31,8 +31,6 @@ export default function ProductForwarding() {
     ...(country !== 'All' && { sellingCountry: country as CountryName }),
   });
 
-  // TODO: 스캔 정보 전송이 완료되고 결과값이 날라오면 최신 출고 로그 Refetch -> component는 분리하지만 API는 요기서 call해서 props로 전달 (refetch 때문)
-
   return (
     <Container>
       <MainSectionTitle title={i18n('page-title')} />
