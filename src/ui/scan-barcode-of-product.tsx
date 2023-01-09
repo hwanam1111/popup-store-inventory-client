@@ -65,6 +65,7 @@ interface ScanBarcodeOfProductProps {
   remainingQuantity: number;
   scanUserName: string;
   forwardedCount?: number;
+  canceledCount?: number;
 }
 
 export default function ScanBarcodeOfProduct({
@@ -81,6 +82,7 @@ export default function ScanBarcodeOfProduct({
   remainingQuantity,
   forwardedCount,
   scanUserName,
+  canceledCount,
 }: ScanBarcodeOfProductProps) {
   const { i18n } = useI18n(I18N_COMMON);
 
@@ -121,6 +123,11 @@ export default function ScanBarcodeOfProduct({
             {menuType === 'Forwarding' && (
               <ProductInfoItem>
                 {`${i18n('scan-barcode-of-product.info.forwarded-quantity')} : ${numberWithComma(forwardedCount)}`}
+              </ProductInfoItem>
+            )}
+            {menuType === 'Cancel' && (
+              <ProductInfoItem>
+                {`${i18n('scan-barcode-of-product.info.canceled-quantity')} : ${numberWithComma(canceledCount)}`}
               </ProductInfoItem>
             )}
           </ProducInfoBlock>

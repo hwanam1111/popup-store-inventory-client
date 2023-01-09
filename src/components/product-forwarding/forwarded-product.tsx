@@ -83,9 +83,9 @@ export default function ForwardedProduct({ refetchForwardedProducts }: Forwarded
       createdAt={forwardedProductData?.forwardedProduct.createdAt}
       sellingCurrency={forwardedProductData?.forwardedProduct.sellingCurrency}
       sellingCountry={forwardedProductData?.forwardedProduct.sellingCountry}
-      productAmount={forwardedProductData?.forwardedProduct.productAmount}
-      remainingQuantity={forwardedProductData?.forwardedProduct.remainingQuantity}
-      forwardedCount={forwardedProductData?.forwardedCount}
+      productAmount={forwardedProductData?.forwardedProduct.productAmount || 0}
+      remainingQuantity={forwardedProductData?.forwardedProduct.remainingQuantity || 0}
+      forwardedCount={forwardedProductData?.forwardedCount || 0}
       scanUserName={forwardedProductData?.forwardedProduct.productForwardedUser.name}
     />
   );

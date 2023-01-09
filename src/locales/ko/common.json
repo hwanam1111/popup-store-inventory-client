@@ -30,7 +30,8 @@
       "product-amount": "상품가격",
       "remaining-quantity": "상품 남은 수량",
       "scan-user": "스캔한 유저",
-      "forwarded-quantity": "출고된 수량"
+      "forwarded-quantity": "출고된 수량",
+      "canceled-quantity": "출고 취소된 수량"
     }
   },
   "api": {

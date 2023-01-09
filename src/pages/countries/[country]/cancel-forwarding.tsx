@@ -5,6 +5,7 @@ import useRouteWhenInvalidCountry from '@hooks/useRouteWhenInvalidCountry';
 import { I18N_CANCEL_FORWARDING } from '@constants/i18n-namespace';
 import useI18n from '@hooks/useI18n';
 import ImpossibleInAllCountry from '@ui/impossible-in-all-country';
+import ProductCancelForwarding from '@components/product-cancel-forwarding';
 
 export default function CancelForwardingPage() {
   useRouteWhenInvalidCountry();
@@ -16,7 +17,11 @@ export default function CancelForwardingPage() {
 
   return (
     <RootLayout metaTitle={i18n('meta-title')}>
-      {country === 'all' ? <ImpossibleInAllCountry i18nAccessProductKey="cannot-cancel-product" /> : <div />}
+      {country === 'all' ? (
+        <ImpossibleInAllCountry i18nAccessProductKey="cannot-cancel-product" />
+      ) : (
+        <ProductCancelForwarding />
+      )}
     </RootLayout>
   );
 }

@@ -29,7 +29,8 @@
       "product-amount": "Product price",
       "remaining-quantity": "Remaining quantity",
       "scan-user": "Scanned user",
-      "forwarded-quantity": "Shipped quantity"
+      "forwarded-quantity": "Shipped quantity",
+      "canceled-quantity": "Canceled quantity"
     }
   },
   "api": {
