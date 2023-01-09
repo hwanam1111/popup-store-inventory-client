@@ -178,7 +178,7 @@ export default function ForwardedProductsList() {
           ) : (
             <HaveNotProducts>{i18n('have-not-products')}</HaveNotProducts>
           ))}
-        {forwardedHistoryData?.forwardedProducts.length > 0 && (
+        {forwardedHistoryData?.forwardedProducts?.length > 0 && (
           <Pagination
             page={page}
             onChangePage={onChangePage}
