@@ -9,7 +9,8 @@
       "create-product": "상품등록",
       "products-list": "상품목록",
       "forwarded-products-history": "출고기록",
-      "revenue": "매출"
+      "revenue": "매출",
+      "data-output": "자료 출력"
     }
   },
   "api": {

@@ -51,6 +51,11 @@ export default function LayoutMainSectionMenu() {
           menuSlug="revenue"
           imageName="revenue"
         />
+        <LayoutMainSectionMenuItem
+          menuName={i18n('layout.main-section-menu.data-output')}
+          menuSlug="data-output"
+          imageName="download"
+        />
       </MenuList>
     </Container>
   );
