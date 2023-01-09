@@ -10,6 +10,7 @@ module.exports = {
     '/countries/[country]/product-forwarding': ['product-forwarding'],
     '/countries/[country]/forwarded-products-history': ['forwarded-products-history'],
     '/countries/[country]/data-output': ['data-output'],
+    '/countries/[country]/cancel-forwarding': ['cancel-forwarding'],
   },
   loadLocaleFrom: (locale, namespace) =>
     import(`./src/locales/${locale}/${namespace}`).then((m) => m.default),

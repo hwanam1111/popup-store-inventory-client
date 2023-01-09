@@ -14,6 +14,12 @@
       "data-output": "Data Output"
     }
   },
+  "impossible-in-all-country": {
+    "cannot-forwarding-product": "Product shipments are available after selecting the country.",
+    "cannot-cancel-product": "Cancellation cancellation is possible after selecting the country.",
+    "cannot-defective-product": "Non -product checks are available after selecting the country.",
+    "cannot-damaged-product": "Check damage products can be selected after selecting a country."
+  },
   "api": {
     "server-error": {
       "message": "A server error has occurred. Please contact the administrator.",

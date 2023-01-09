@@ -5,7 +5,7 @@ import useRouteWhenInvalidCountry from '@hooks/useRouteWhenInvalidCountry';
 import { I18N_PRODUCT_FORWARDING } from '@constants/i18n-namespace';
 import useI18n from '@hooks/useI18n';
 import ProductForwarding from '@components/product-forwarding';
-import CannotBeDone from '@components/product-forwarding/cannot-be-done';
+import CannotAccessProduct from '@ui/impossible-in-all-country';
 
 export default function ProductForwardingPage() {
   useRouteWhenInvalidCountry();
@@ -17,7 +17,11 @@ export default function ProductForwardingPage() {
 
   return (
     <RootLayout metaTitle={i18n('meta-title')}>
-      {country === 'all' ? <CannotBeDone /> : <ProductForwarding />}
+      {country === 'all' ? (
+        <CannotAccessProduct i18nAccessProductKey="cannot-forwarding-product" />
+      ) : (
+        <ProductForwarding />
+      )}
     </RootLayout>
   );
 }
