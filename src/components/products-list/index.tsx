@@ -67,7 +67,9 @@ export default function ProductsList() {
                 i18n('table.th.product-amount'),
                 i18n('table.th.product-quantity'),
                 i18n('table.th.sold-quantity'),
-                i18n('table.th.remaining-quantity'),
+                i18n('table.th.canceled-quantity'),
+                i18n('table.th.defective-quantity'),
+                i18n('table.th.damage-quantity'),
               ]}
             >
               {productsData.products.map((product) => (
@@ -85,7 +87,9 @@ export default function ProductsList() {
                   </td>
                   <td>{numberWithComma(product.productQuantity)}</td>
                   <td>{numberWithComma(product.soldQuantity)}</td>
-                  <td>{numberWithComma(product.remainingQuantity)}</td>
+                  <td>{numberWithComma(product.canceledCount)}</td>
+                  <td>{numberWithComma(product.defectiveQuantity)}</td>
+                  <td>{numberWithComma(product.damageQuantity)}</td>
                 </tr>
               ))}
             </Table>

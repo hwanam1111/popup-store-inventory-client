@@ -7,9 +7,11 @@
       "product-name": "Product Name",
       "product-amount": "Selling Price",
       "selling-country": "Sales Country",
-      "product-quantity": "Total Product Quantity",
-      "sold-quantity": "Product Quantity Sold",
-      "remaining-quantity": "Product Quantity Remaining"
+      "product-quantity": "Total quantity",
+      "sold-quantity": "Selled quantity",
+      "canceled-quantity": "Canceled quantity",
+      "defective-quantity": "Poor Quantity",
+      "damage-quantity": "Breakdown"
     }
   },
   "have-not-products": "No Product Registered"

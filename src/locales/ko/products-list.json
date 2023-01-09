@@ -7,9 +7,11 @@
       "product-name": "상품명",
       "product-amount": "판매가격",
       "selling-country": "판매국가",
-      "product-quantity": "전체 상품 수량",
-      "sold-quantity": "판매된 상품 수량",
-      "remaining-quantity": "남은 상품 수량"
+      "product-quantity": "전체 수량",
+      "sold-quantity": "판매된 수량",
+      "canceled-quantity": "취소된 수량",
+      "defective-quantity": "불량 수량",
+      "damage-quantity": "파손 수량"
     }
   },
   "have-not-products": "등록된 상품이 없습니다."
