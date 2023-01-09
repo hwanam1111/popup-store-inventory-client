@@ -52,7 +52,7 @@ const ProductName = styled.h2`
 `;
 
 interface ScanBarcodeOfProductProps {
-  menuType: 'Forwarding' | 'Cancel' | 'Defective' | 'Damage';
+  menuType: 'Forwarding' | 'Cancel' | 'Defective-Damage';
   isLoading: boolean;
   isHaveScanProduct: boolean;
   productImage: string;

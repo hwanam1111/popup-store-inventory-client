@@ -38,8 +38,8 @@ export default function LayoutMainSectionMenu() {
           imageName="cancel"
         />
         <LayoutMainSectionMenuItem
-          menuName={i18n('layout.main-section-menu.defective-and-damaged-product')}
-          menuSlug="defective-and-damaged-product"
+          menuName={i18n('layout.main-section-menu.defective-damage-product')}
+          menuSlug="defective-damage-product"
           imageName="problematic"
         />
         <LayoutMainSectionMenuItem

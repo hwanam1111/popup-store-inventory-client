@@ -11,6 +11,7 @@ module.exports = {
     '/countries/[country]/forwarded-products-history': ['forwarded-products-history'],
     '/countries/[country]/data-output': ['data-output'],
     '/countries/[country]/cancel-forwarding': ['cancel-forwarding'],
+    '/countries/[country]/defective-damage-product': ['defective-damage-product'],
   },
   loadLocaleFrom: (locale, namespace) =>
     import(`./src/locales/${locale}/${namespace}`).then((m) => m.default),

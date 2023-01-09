@@ -12,11 +12,7 @@ const Container = styled.div`
 `;
 
 interface ImpossibleInAllCountryProps {
-  i18nAccessProductKey:
-    | 'cannot-forwarding-product'
-    | 'cannot-cancel-product'
-    | 'cannot-defective-product'
-    | 'cannot-damaged-product';
+  i18nAccessProductKey: 'cannot-forwarding-product' | 'cannot-cancel-product' | 'cannot-defective-damage-product';
 }
 
 export default function ImpossibleInAllCountry({ i18nAccessProductKey }: ImpossibleInAllCountryProps) {

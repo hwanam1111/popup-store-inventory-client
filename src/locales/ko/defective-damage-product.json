@@ -1,0 +1,45 @@
+{
+  "meta-title": "불량/파손 상품",
+  "page-title": "불량/파손 상품",
+  "defective-damage-product": {
+    "result": {
+      "error": {
+        "product-not-found": "상품이 존재하지 않습니다."
+      },
+      "confirm-button": "확인"
+    }
+  },
+  "form": {
+    "forward-history-type": {
+      "label": "상품 상태",
+      "radio": {
+        "defective": "불량",
+        "damage": "파손"
+      },
+      "error": {
+        "require": "상품 상태를 선택해주세요."
+      }
+    },
+    "memo": {
+      "label": "상품 상태 메모",
+      "placeholder": "상품상태를 입력해주세요.",
+      "error": {
+        "require": "상품상태를 입력해주세요."
+      }
+    },
+    "submit-button": "확인"
+  },
+  "defective-damage-history": {
+    "table": {
+      "th": {
+        "checked-time": "확인시간",
+        "product-name": "상품명",
+        "barcode": "바코드 번호",
+        "selling-country": "확인국가",
+        "product-amount": "상품가격",
+        "checked-user-name": "확인한 유저"
+      }
+    },
+    "have-not-products": "불량/파손된 상품이 없습니다."
+  }
+}
