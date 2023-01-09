@@ -26,4 +26,5 @@ export interface ProductForwardEntity {
   product: ProductEntity;
   productForwardedUser: UserEntity;
   forwardHistoryType: ForwardHistoryType;
+  memo: string | null;
 }
