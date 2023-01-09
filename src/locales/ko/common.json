@@ -21,6 +21,18 @@
     "cannot-defective-product": "불량 상품 체크는 국가를 선택 후 가능합니다.",
     "cannot-damaged-product": "파손 상품 체크는 국가를 선택 후 가능합니다."
   },
+  "scan-barcode-of-product": {
+    "placeholder": "이곳에 스캔된 상품이 표시됩니다.",
+    "info": {
+      "barcode": "바코드 번호",
+      "scan-time": "출고시간",
+      "selling-country": "국가",
+      "product-amount": "상품가격",
+      "remaining-quantity": "상품 남은 수량",
+      "scan-user": "스캔한 유저",
+      "forwarded-quantity": "출고된 수량"
+    }
+  },
   "api": {
     "server-error": {
       "message": "서버에러가 발생했습니다. 관리자에게 문의 부탁드립니다.",

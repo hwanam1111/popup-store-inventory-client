@@ -20,6 +20,18 @@
     "cannot-defective-product": "Non -product checks are available after selecting the country.",
     "cannot-damaged-product": "Check damage products can be selected after selecting a country."
   },
+  "scan-barcode-of-product": {
+    "placeholder": "The product scanned is displayed here.",
+    "info": {
+      "barcode": "Barcode number",
+      "scan-time": "Shipping time",
+      "selling-country": "country",
+      "product-amount": "Product price",
+      "remaining-quantity": "Remaining quantity",
+      "scan-user": "Scanned user",
+      "forwarded-quantity": "Shipped quantity"
+    }
+  },
   "api": {
     "server-error": {
       "message": "A server error has occurred. Please contact the administrator.",

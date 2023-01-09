@@ -2,16 +2,6 @@
   "meta-title": "상품 출고",
   "page-title": "상품 출고",
   "forwarding-product": {
-    "placeholder": "이곳에 스캔된 상품이 표시됩니다.",
-    "info": {
-      "barcode": "바코드 번호",
-      "forwarded-time": "출고시간",
-      "selling-country": "국가",
-      "product-amount": "상품가격",
-      "remaining-quantity": "상품 남은 수량",
-      "forwarded-quantity": "출고된 수량",
-      "forwarded-user": "출고한 유저"
-    },
     "result": {
       "error": {
         "product-not-found": "상품이 존재하지 않습니다.",
