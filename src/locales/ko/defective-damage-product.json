@@ -33,6 +33,7 @@
     "table": {
       "th": {
         "checked-time": "확인시간",
+        "reason": "사유",
         "product-name": "상품명",
         "barcode": "바코드 번호",
         "selling-country": "확인국가",

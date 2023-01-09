@@ -33,6 +33,7 @@
     "table": {
       "th": {
         "checked-time": "Confirmation time",
+        "reason": "Reason",
         "product-name": "product name",
         "barcode": "Barcode number",
         "selling-country": "Confirmation State",

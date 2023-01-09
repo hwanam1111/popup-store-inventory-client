@@ -45,6 +45,7 @@ export default function DefectiveDamageProductsHistory({ defectiveDamageProducts
           th={[
             '',
             i18n('defective-damage-history.table.th.checked-time'),
+            i18n('defective-damage-history.table.th.reason'),
             i18n('defective-damage-history.table.th.product-name'),
             i18n('defective-damage-history.table.th.barcode'),
             i18n('defective-damage-history.table.th.selling-country'),
@@ -67,6 +68,7 @@ export default function DefectiveDamageProductsHistory({ defectiveDamageProducts
                   addTimeZoneCityName: true,
                 })}
               </td>
+              <td>{product.memo}</td>
               <td>{product.productName}</td>
               <td>{product.barcode}</td>
               <td>{product.sellingCountry}</td>
