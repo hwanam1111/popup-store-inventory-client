@@ -4,12 +4,33 @@
     "logout": "Logout",
     "main-section-menu": {
       "dashboard": "Dashboard",
-      "scan-product": "Product forwarding (Scan)",
+      "forwarding-product": "Product forwarding",
+      "cancel-forwarding": "Cancellation of shipment",
+      "defective-product": "Defective product",
+      "damaged-product": "Damaged product",
       "create-product": "Create Product",
       "products-list": "Products List",
       "forwarded-products-history": "Shipping record",
-      "revenue": "Revenue",
       "data-output": "Data Output"
+    }
+  },
+  "impossible-in-all-country": {
+    "cannot-forwarding-product": "Product shipments are available after selecting the country.",
+    "cannot-cancel-product": "Cancellation cancellation is possible after selecting the country.",
+    "cannot-defective-product": "Non -product checks are available after selecting the country.",
+    "cannot-damaged-product": "Check damage products can be selected after selecting a country."
+  },
+  "scan-barcode-of-product": {
+    "placeholder": "The product scanned is displayed here.",
+    "info": {
+      "barcode": "Barcode number",
+      "scan-time": "Shipping time",
+      "selling-country": "country",
+      "product-amount": "Product price",
+      "remaining-quantity": "Remaining quantity",
+      "scan-user": "Scanned user",
+      "forwarded-quantity": "Shipped quantity",
+      "canceled-quantity": "Canceled quantity"
     }
   },
   "api": {

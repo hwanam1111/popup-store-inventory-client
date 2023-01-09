@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-import { I18N_PRODUCT_FORWARDING } from '@constants/i18n-namespace';
+import { I18N_CANCEL_FORWARDING } from '@constants/i18n-namespace';
 import useI18n from '@hooks/useI18n';
 import MainSectionTitle from '@ui/main-section-title';
-import ForwardedProduct from '@components/product-forwarding/forwarded-product';
-import ForwardedProductsHistory from '@components/product-forwarding/forwarded-history';
-import useFetchForwardedProducts from '@apis/products/queries/fetch-forwarded-products.dto';
 import { CountryName } from '@apis/countries/entities/country.entity';
+import useFetchCanceledForwardingProducts from '@apis/products/queries/fetch-cancaled-forwarding-products.dto';
+import CancelForwardingProduct from '@components/product-cancel-forwarding/cancaled-forwarding-product';
+import CanceledForwardingProductsHistory from '@components/product-cancel-forwarding/canceled-forwarding-history';
 
 const Container = styled.div`
   margin: 3rem auto 0 auto;
@@ -20,12 +20,12 @@ const ContentBlock = styled.div`
   gap: 2rem;
 `;
 
-export default function ProductForwarding() {
-  const { i18n } = useI18n(I18N_PRODUCT_FORWARDING);
+export default function ProductCancelForwarding() {
+  const { i18n } = useI18n(I18N_CANCEL_FORWARDING);
   const { query } = useRouter();
   const country = (query.country as string).replace(/\b[a-z]/, (text) => text.toUpperCase());
   const limit = 30;
-  const { data: productsData, refetch } = useFetchForwardedProducts({
+  const { data: productsData, refetch } = useFetchCanceledForwardingProducts({
     limit,
     page: 1,
     ...(country !== 'All' && { sellingCountry: country as CountryName }),
@@ -35,9 +35,9 @@ export default function ProductForwarding() {
     <Container>
       <MainSectionTitle title={i18n('page-title')} />
       <ContentBlock>
-        <ForwardedProduct refetchForwardedProducts={refetch} />
-        {productsData?.forwardedProducts && (
-          <ForwardedProductsHistory forwardedProducts={productsData.forwardedProducts} />
+        <CancelForwardingProduct refetchForwardedProducts={refetch} />
+        {productsData?.canceledForwardingProducts && (
+          <CanceledForwardingProductsHistory canceledForwardingProducts={productsData.canceledForwardingProducts} />
         )}
       </ContentBlock>
     </Container>

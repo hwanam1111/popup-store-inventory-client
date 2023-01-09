@@ -2,15 +2,15 @@ import { useRouter } from 'next/router';
 
 import RootLayout from '@ui/root-layout';
 import useRouteWhenInvalidCountry from '@hooks/useRouteWhenInvalidCountry';
-import { I18N_PRODUCT_FORWARDING } from '@constants/i18n-namespace';
+import { I18N_CANCEL_FORWARDING } from '@constants/i18n-namespace';
 import useI18n from '@hooks/useI18n';
-import ProductForwarding from '@components/product-forwarding';
-import CannotAccessProduct from '@ui/impossible-in-all-country';
+import ImpossibleInAllCountry from '@ui/impossible-in-all-country';
+import ProductCancelForwarding from '@components/product-cancel-forwarding';
 
-export default function ProductForwardingPage() {
+export default function CancelForwardingPage() {
   useRouteWhenInvalidCountry();
 
-  const { i18n } = useI18n(I18N_PRODUCT_FORWARDING);
+  const { i18n } = useI18n(I18N_CANCEL_FORWARDING);
 
   const { query } = useRouter();
   const country = (query.country as string).toLocaleLowerCase();
@@ -18,9 +18,9 @@ export default function ProductForwardingPage() {
   return (
     <RootLayout metaTitle={i18n('meta-title')}>
       {country === 'all' ? (
-        <CannotAccessProduct i18nAccessProductKey="cannot-forwarding-product" />
+        <ImpossibleInAllCountry i18nAccessProductKey="cannot-cancel-product" />
       ) : (
-        <ProductForwarding />
+        <ProductCancelForwarding />
       )}
     </RootLayout>
   );
