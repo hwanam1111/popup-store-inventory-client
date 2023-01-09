@@ -11,9 +11,10 @@ const Container = styled.nav`
 
 const MenuList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 0 1rem;
-  gap: 5rem;
+  gap: 2rem 5rem;
 `;
 
 export default function LayoutMainSectionMenu() {
@@ -27,9 +28,24 @@ export default function LayoutMainSectionMenu() {
           imageName="dashboard"
         />
         <LayoutMainSectionMenuItem
-          menuName={i18n('layout.main-section-menu.scan-product')}
+          menuName={i18n('layout.main-section-menu.forwarding-product')}
           menuSlug="product-forwarding"
           imageName="barcode-scan"
+        />
+        <LayoutMainSectionMenuItem
+          menuName={i18n('layout.main-section-menu.cancel-forwarding')}
+          menuSlug="cancel-forwarding"
+          imageName="cancel"
+        />
+        <LayoutMainSectionMenuItem
+          menuName={i18n('layout.main-section-menu.defective-product')}
+          menuSlug="defective-product"
+          imageName="problematic"
+        />
+        <LayoutMainSectionMenuItem
+          menuName={i18n('layout.main-section-menu.damaged-product')}
+          menuSlug="damaged-product"
+          imageName="damaged"
         />
         <LayoutMainSectionMenuItem
           menuName={i18n('layout.main-section-menu.create-product')}

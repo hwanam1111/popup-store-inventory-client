@@ -5,11 +5,14 @@
     "side-menu": {},
     "main-section-menu": {
       "dashboard": "대시보드",
-      "scan-product": "상품출고 (바코드스캔)",
+      "forwarding-product": "상품출고",
+      "cancel-forwarding": "출고취소",
+      "defective-product": "불량상품",
+      "damaged-product": "파손상품",
       "create-product": "상품등록",
       "products-list": "상품목록",
       "forwarded-products-history": "출고기록",
-      "data-output": "자료 출력"
+      "data-output": "자료출력"
     }
   },
   "api": {
