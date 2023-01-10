@@ -87,7 +87,7 @@ export default function ProductsList() {
                   </td>
                   <td>{numberWithComma(product.productQuantity)}</td>
                   <td>{numberWithComma(product.soldQuantity)}</td>
-                  <td>{numberWithComma(product.canceledCount)}</td>
+                  <td>{numberWithComma(product.canceledQuantity)}</td>
                   <td>{numberWithComma(product.defectiveQuantity)}</td>
                   <td>{numberWithComma(product.damageQuantity)}</td>
                 </tr>
