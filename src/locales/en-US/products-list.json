@@ -7,7 +7,7 @@
       "product-name": "Product Name",
       "product-amount": "Selling Price",
       "selling-country": "Sales Country",
-      "product-quantity": "Total quantity",
+      "product-quantity": "Quantity left",
       "sold-quantity": "Selled quantity",
       "canceled-quantity": "Canceled quantity",
       "defective-quantity": "Poor Quantity",
