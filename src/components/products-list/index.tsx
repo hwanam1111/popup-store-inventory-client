@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import { I18N_PRODUCTS_LIST } from '@constants/i18n-namespace';
+import { I18N_COMMON, I18N_PRODUCTS_LIST } from '@constants/i18n-namespace';
 import useI18n from '@hooks/useI18n';
 import useFetchProducts from '@apis/products/queries/fetch-products';
 import usePagination from '@hooks/usePagination';
@@ -13,6 +13,8 @@ import Table from '@ui/table';
 import numberWithComma from '@utils/number-with-comma';
 import { useCallback, useState } from 'react';
 import EditProductQuantity from '@components/edit-product-quantity';
+import useDeleteProduct from '@apis/products/mutations/delete-product';
+import { sweetAlert, sweetConfirm } from '@libs/sweet-alert2';
 
 const Container = styled.div`
   margin: 3rem auto 0 auto;
@@ -44,8 +46,10 @@ const ProductImage = styled(LazyLoadImage)`
 const HaveNotProducts = styled.p``;
 
 export default function ProductsList() {
-  const { i18n } = useI18n(I18N_PRODUCTS_LIST);
+  const router = useRouter();
   const { query } = useRouter();
+  const { i18n } = useI18n(I18N_PRODUCTS_LIST);
+  const { i18n: commonI18n } = useI18n(I18N_COMMON);
   const country = (query.country as string).replace(/\b[a-z]/, (text) => text.toUpperCase());
   const [page, onChangePage] = usePagination(1);
   const limit = 30;
@@ -72,6 +76,73 @@ export default function ProductsList() {
     setProductNameToEditQuantity(null);
   }, []);
 
+  const { isLoading: isDeleteProductLoading, mutate: deleteProductMutate } = useDeleteProduct();
+  const onDeleteProduct = useCallback(
+    (productId: number, productName: string) => () => {
+      if (!isDeleteProductLoading) {
+        sweetConfirm
+          .fire({
+            title: `[${productName}] ${i18n('delete-product.confirm-message')}`,
+            confirmButtonText: i18n('delete-product.confirm-button'),
+          })
+          .then((confirmResult) => {
+            if (confirmResult.isConfirmed) {
+              deleteProductMutate(
+                {
+                  productId,
+                },
+                {
+                  onSuccess: (result) => {
+                    if (result?.ok) {
+                      sweetAlert
+                        .fire({
+                          icon: 'success',
+                          titleText: i18n('delete-product.result.success'),
+                          confirmButtonText: i18n('delete-product.result.confirm-button'),
+                        })
+                        .then((swalResult) => {
+                          if (swalResult) {
+                            router.reload();
+                          }
+                        });
+                    }
+                  },
+                  onError: (err) => {
+                    if (err.response?.data?.error) {
+                      return sweetAlert
+                        .fire({
+                          icon: 'error',
+                          titleText: i18n(`delete-product.result.error.${err.response?.data?.error.message}`),
+                          confirmButtonText: i18n('delete-product.result.confirm-button'),
+                        })
+                        .then((swalResult) => {
+                          if (swalResult) {
+                            router.reload();
+                          }
+                        });
+                    }
+
+                    return sweetAlert
+                      .fire({
+                        icon: 'error',
+                        titleText: commonI18n('api.server-error.message'),
+                        confirmButtonText: commonI18n('api.server-error.confirm-button'),
+                      })
+                      .then((swalResult) => {
+                        if (swalResult) {
+                          router.reload();
+                        }
+                      });
+                  },
+                },
+              );
+            }
+          });
+      }
+    },
+    [isDeleteProductLoading],
+  );
+
   return (
     <Container>
       <MainSectionTitle title={i18n('page-title')} />
@@ -90,6 +161,7 @@ export default function ProductsList() {
                 i18n('table.th.defective-quantity'),
                 i18n('table.th.damage-quantity'),
                 i18n('table.th.edit-product-quantity'),
+                i18n('table.th.delete-product'),
               ]}
             >
               {productsData.products.map((product) => (
@@ -117,6 +189,15 @@ export default function ProductsList() {
                       onClick={onEditProductQuantityFormOpen(product.id, product.productName)}
                     >
                       <img src="/images/edit.png" alt="edit product" />
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className="button-icon"
+                      onClick={onDeleteProduct(product.id, product.productName)}
+                    >
+                      <img src="/images/edit.png" alt="delete product" />
                     </button>
                   </td>
                 </tr>
