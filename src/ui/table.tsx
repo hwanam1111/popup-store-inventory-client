@@ -35,6 +35,22 @@ const TableStyled = createGlobalStyle`
     border-bottom: 1px solid ${({ theme }) => theme.color.G20};
     vertical-align: middle;
   }
+
+  table .button-icon {
+    padding: 0.5rem;
+    background-color: ${({ theme }) => theme.color.G10};
+    border-radius: 0.25rem;
+
+    &:hover {
+      transition: background-color .2s;
+      background-color: ${({ theme }) => theme.color.G30};
+    }
+
+    & > img {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
 `;
 
 interface TableProps {

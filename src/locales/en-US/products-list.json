@@ -11,7 +11,8 @@
       "sold-quantity": "Selled quantity",
       "canceled-quantity": "Canceled quantity",
       "defective-quantity": "Poor Quantity",
-      "damage-quantity": "Breakdown"
+      "damage-quantity": "Breakdown",
+      "edit-product-quantity": "Edit Product Quantity"
     }
   },
   "have-not-products": "No Product Registered"

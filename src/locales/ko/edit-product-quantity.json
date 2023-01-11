@@ -1,0 +1,20 @@
+{
+  "edit-quantity-product-name": "변경할 상품",
+  "form": {
+    "product-quantity": {
+      "label": "변경할 상품 수량",
+      "placeholder": "변경할 상품 수량을 입력해주세요.",
+      "error": {
+        "require": "변경할 상품 수량을 입력해주세요."
+      }
+    },
+    "submit-button": "수정",
+    "result": {
+      "success": "상품 수량 수정이 완료되었습니다.",
+      "error": {
+        "product-not-found": "상품이 존재하지 않습니다."
+      },
+      "confirm-button": "확인"
+    }
+  }
+}

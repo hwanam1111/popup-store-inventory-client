@@ -1,0 +1,20 @@
+{
+  "edit-quantity-product-name": "Products to be changed",
+  "form": {
+    "product-quantity": {
+      "label": "Product quantity to change",
+      "placeholder": "Please enter the quantity to change.",
+      "error": {
+        "require": "Please enter the quantity to change."
+      }
+    },
+    "submit-button": "Modify",
+    "result": {
+      "success": "Modification of product quantity has been completed.",
+      "error": {
+        "product-not-found": "There is no product."
+      },
+      "confirm-button": "Confirm"
+    }
+  }
+}

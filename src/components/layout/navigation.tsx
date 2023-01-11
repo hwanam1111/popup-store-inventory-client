@@ -11,6 +11,7 @@ const Container = styled.nav`
   background-color: ${({ theme }) => theme.color.BG30};
   border-right: 1px solid ${({ theme }) => theme.color.G20};
   padding: 2rem 1rem;
+  z-index: 10;
 `;
 
 const MenuList = styled.ul`

@@ -11,7 +11,8 @@
       "sold-quantity": "판매된 수량",
       "canceled-quantity": "취소된 수량",
       "defective-quantity": "불량 수량",
-      "damage-quantity": "파손 수량"
+      "damage-quantity": "파손 수량",
+      "edit-product-quantity": "상품 수량 수정"
     }
   },
   "have-not-products": "등록된 상품이 없습니다."

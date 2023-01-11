@@ -11,6 +11,8 @@ import Pagination from '@ui/pagination';
 import MainSectionTitle from '@ui/main-section-title';
 import Table from '@ui/table';
 import numberWithComma from '@utils/number-with-comma';
+import { useCallback, useState } from 'react';
+import EditProductQuantity from '@components/edit-product-quantity';
 
 const Container = styled.div`
   margin: 3rem auto 0 auto;
@@ -53,6 +55,23 @@ export default function ProductsList() {
     ...(country !== 'All' && { sellingCountry: country as CountryName }),
   });
 
+  const [editProductQuantityFormOpend, setEditProductQuantityFormOpend] = useState<boolean>(false);
+  const [productIdToEditQuantity, setProductIdToEditQuantity] = useState<number | null>(null);
+  const [productNameToEditQuantity, setProductNameToEditQuantity] = useState<string | null>('');
+  const onEditProductQuantityFormOpen = useCallback(
+    (productId: number, productName: string) => () => {
+      setProductIdToEditQuantity(productId);
+      setProductNameToEditQuantity(productName);
+      setEditProductQuantityFormOpend(true);
+    },
+    [],
+  );
+  const onEditProductQuantityFormClose = useCallback(() => {
+    setEditProductQuantityFormOpend(false);
+    setProductIdToEditQuantity(null);
+    setProductNameToEditQuantity(null);
+  }, []);
+
   return (
     <Container>
       <MainSectionTitle title={i18n('page-title')} />
@@ -70,6 +89,7 @@ export default function ProductsList() {
                 i18n('table.th.canceled-quantity'),
                 i18n('table.th.defective-quantity'),
                 i18n('table.th.damage-quantity'),
+                i18n('table.th.edit-product-quantity'),
               ]}
             >
               {productsData.products.map((product) => (
@@ -90,6 +110,15 @@ export default function ProductsList() {
                   <td>{numberWithComma(product.canceledQuantity)}</td>
                   <td>{numberWithComma(product.defectiveQuantity)}</td>
                   <td>{numberWithComma(product.damageQuantity)}</td>
+                  <td>
+                    <button
+                      type="button"
+                      className="button-icon"
+                      onClick={onEditProductQuantityFormOpen(product.id, product.productName)}
+                    >
+                      <img src="/images/edit.png" alt="edit product" />
+                    </button>
+                  </td>
                 </tr>
               ))}
             </Table>
@@ -105,6 +134,13 @@ export default function ProductsList() {
           />
         )}
       </ContentBlock>
+      {editProductQuantityFormOpend && (
+        <EditProductQuantity
+          productId={productIdToEditQuantity}
+          productName={productNameToEditQuantity}
+          onClose={onEditProductQuantityFormClose}
+        />
+      )}
     </Container>
   );
 }
