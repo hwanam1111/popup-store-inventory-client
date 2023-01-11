@@ -12,8 +12,20 @@
       "canceled-quantity": "취소된 수량",
       "defective-quantity": "불량 수량",
       "damage-quantity": "파손 수량",
-      "edit-product-quantity": "상품 수량 수정"
+      "edit-product-quantity": "상품 수량 수정",
+      "delete-product": "상품 삭제"
     }
   },
-  "have-not-products": "등록된 상품이 없습니다."
+  "have-not-products": "등록된 상품이 없습니다.",
+  "delete-product": {
+    "confirm-message": "정말로 상품을 삭제하시겠습니까?",
+    "confirm-button": "삭제",
+    "result": {
+      "success": "상품 삭제가 완료되었습니다.",
+      "error": {
+        "product-not-found": "상품이 존재하지 않습니다."
+      },
+      "confirm-button": "확인"
+    }
+  }
 }
