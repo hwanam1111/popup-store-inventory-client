@@ -197,7 +197,7 @@ export default function ProductsList() {
                       className="button-icon"
                       onClick={onDeleteProduct(product.id, product.productName)}
                     >
-                      <img src="/images/edit.png" alt="delete product" />
+                      <img src="/images/delete.png" alt="delete product" />
                     </button>
                   </td>
                 </tr>
