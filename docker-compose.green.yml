@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  createjump-inventory-frontend-server:
+    build: .
+    container_name: createjump-inventory-frontend-server-green
+    restart: always
+    environment:
+      - TZ=Asia/Seoul
+    ports:
+      - '3001:3000'
