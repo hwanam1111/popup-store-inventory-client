@@ -1,0 +1,27 @@
+{
+  "meta-title": "상품 출고",
+  "page-title": "상품 출고",
+  "forwarding-product": {
+    "result": {
+      "error": {
+        "product-not-found": "상품이 존재하지 않습니다.",
+        "out-of-inventory": "상품의 재고가 없습니다."
+      },
+      "confirm-button": "확인"
+    }
+  },
+  "forwarded-history": {
+    "table": {
+      "th": {
+        "forwarded-time": "출고시간",
+        "history-type": "출고 타입",
+        "product-name": "상품명",
+        "barcode": "바코드 번호",
+        "selling-country": "출고국가",
+        "product-amount": "상품가격",
+        "forwarded-user-name": "출고한 유저"
+      }
+    },
+    "have-not-products": "출고된 상품이 없습니다."
+  }
+}

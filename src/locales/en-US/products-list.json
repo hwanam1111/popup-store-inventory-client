@@ -1,0 +1,31 @@
+{
+  "meta-title": "Product List",
+  "page-title": "Product List",
+  "table": {
+    "th": {
+      "barcode": "Barcode Number",
+      "product-name": "Product Name",
+      "product-amount": "Selling Price",
+      "selling-country": "Sales Country",
+      "product-quantity": "Quantity left",
+      "sold-quantity": "Selled quantity",
+      "canceled-quantity": "Canceled quantity",
+      "defective-quantity": "Poor Quantity",
+      "damage-quantity": "Breakdown",
+      "edit-product-quantity": "Edit Product Quantity",
+      "delete-product": "Delete Product"
+    }
+  },
+  "have-not-products": "No Product Registered",
+  "delete-product": {
+    "confirm-message": "Would you really delete the product?",
+    "confirm-button": "delete",
+    "result": {
+      "success": "Product deletion has been completed.",
+      "error": {
+        "product-not-found": "There is no product."
+      },
+      "confirm-button": "Confirm"
+    }
+  }
+}

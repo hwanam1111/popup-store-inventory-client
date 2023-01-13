@@ -1,0 +1,46 @@
+{
+  "meta-title": "Defective/Damage Products",
+  "page-title": "Defective/Damage Products",
+  "defective-damage-product": {
+    "result": {
+      "error": {
+        "product-not-found": "There is no product."
+      },
+      "confirm-button": "Confirm"
+    }
+  },
+  "form": {
+    "forward-history-type": {
+      "label": "Commodity",
+      "radio": {
+        "defective": "Defective",
+        "damage": "Damage"
+      },
+      "error": {
+        "require": "Please select the product status."
+      }
+    },
+    "memo": {
+      "label": "Product status memo",
+      "placeholder": "Please enter the product status.",
+      "error": {
+        "require": "Please enter the product status."
+      }
+    },
+    "submit-button": "Confirm"
+  },
+  "defective-damage-history": {
+    "table": {
+      "th": {
+        "checked-time": "Confirmation time",
+        "reason": "Reason",
+        "product-name": "product name",
+        "barcode": "Barcode number",
+        "selling-country": "Confirmation State",
+        "product-amount": "Product price",
+        "checked-user-name": "Confirmed user"
+      }
+    },
+    "have-not-products": "There is no defective/damaged product."
+  }
+}

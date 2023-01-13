@@ -10,8 +10,8 @@ async function axiosInterceptor({ ...options }): Promise<any> {
     const cookies = new Cookies();
     const token = cookies.get(process.env.JWT_COOKIE_NAME);
 
-    if (!request.headers.Authorization) {
-      request.headers.Authorization = token || '';
+    if (!request.headers['x-jwt']) {
+      request.headers['x-jwt'] = token || '';
     }
 
     return request;
@@ -20,13 +20,6 @@ async function axiosInterceptor({ ...options }): Promise<any> {
   const onSuccess = (response: any) => response;
 
   const onError = (error: any) => {
-    if (error?.response.data === undefined || error?.response.data === null) {
-      error.response.data = {
-        ok: false,
-        error: 'server-error',
-      };
-    }
-
     return Promise.reject(error);
   };
 

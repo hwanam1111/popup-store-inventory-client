@@ -1,0 +1,27 @@
+{
+  "meta-title": "Product release",
+  "page-title": "Product release",
+  "forwarding-product": {
+    "result": {
+      "error": {
+        "product-not-found": "Product does not exist.",
+        "out-of-inventory": "Product is not in stock."
+      },
+      "confirm-button": "Confirm"
+    }
+  },
+  "forwarded-history": {
+    "table": {
+      "th": {
+        "forwarded-time": "Shipping time",
+        "history-type": "Shipping Type",
+        "product-name": "Product name",
+        "barcode": "Barcode number",
+        "selling-country": "Shipment country",
+        "product-amount": "Product price",
+        "forwarded-user-name": "The user shipped"
+      }
+    },
+    "have-not-products": "There is no product shipped."
+  }
+}

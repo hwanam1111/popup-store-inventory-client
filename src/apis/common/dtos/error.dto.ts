@@ -1,7 +1,5 @@
-export interface ErrorOutput {
-  error: {
-    statusType: string;
-    statusCode: number;
-    message: string | string[];
-  };
+export interface ErrorOutput<T> {
+  statusType: string;
+  statusCode: number;
+  message: T;
 }

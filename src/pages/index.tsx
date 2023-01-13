@@ -1,7 +1,19 @@
+import useFetchMe from '@apis/users/queries/fetch-me';
+import Router from 'next/router';
+import { useEffect } from 'react';
+
 export default function Home() {
-  return (
-    <div>
-      <h1>home</h1>
-    </div>
-  );
+  const { data: meData } = useFetchMe();
+
+  useEffect(() => {
+    if (meData?.me) {
+      Router.replace('/countries/[country]/dashboard', '/countries/all/dashboard');
+    }
+
+    if (meData?.me === null) {
+      Router.replace('/auth/login');
+    }
+  }, [meData]);
+
+  return <div />;
 }

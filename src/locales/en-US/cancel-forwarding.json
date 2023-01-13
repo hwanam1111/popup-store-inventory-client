@@ -1,0 +1,25 @@
+{
+  "meta-title": "Cancellation of shipment",
+  "page-title": "Cancellation of shipment",
+  "cancel-forwarding-product": {
+    "result": {
+      "error": {
+        "product-not-found": "There is no product."
+      },
+      "confirm-button": "Confirm"
+    }
+  },
+  "canceled-history": {
+    "table": {
+      "th": {
+        "cancaled-time": "Canceled time",
+        "product-name": "product name",
+        "barcode": "Barcode number",
+        "selling-country": "Cancellation Country of Cancellation",
+        "product-amount": "Product price",
+        "cancaled-user-name": "Canceled user"
+      }
+    },
+    "have-not-products": "There is no product that has been canceled."
+  }
+}
