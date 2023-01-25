@@ -5,6 +5,7 @@ module.exports = {
     '*': ['common'],
     '/': ['home'],
     '/auth/login': ['login'],
+    '/countries/[country]/dashboard': ['dashboard'],
     '/countries/[country]/create-product': ['create-product'],
     '/countries/[country]/products-list': ['products-list', 'edit-product-quantity'],
     '/countries/[country]/product-forwarding': ['product-forwarding'],
