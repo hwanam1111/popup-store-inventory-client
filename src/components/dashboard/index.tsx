@@ -50,8 +50,13 @@ export default function Dashboard() {
           {isLoadingRevenueData && !revenueData && <ComponentLoading color="#222" />}
           {revenueData?.chart && (
             <Chart
-              chartName="일별 매출"
-              chartData={[{ dataName: '매출', data: Object.values(revenueData.chart) as unknown as number[] }]}
+              chartName={i18n('chart.revenue.title')}
+              chartData={[
+                {
+                  dataName: i18n('chart.revenue.title'),
+                  data: Object.values(revenueData.chart) as unknown as number[],
+                },
+              ]}
               xaxisNames={Object.keys(revenueData.chart)}
             />
           )}
@@ -60,9 +65,12 @@ export default function Dashboard() {
           {isLoadingForwardedProductsData && !forwardedProductsData && <ComponentLoading color="#222" />}
           {forwardedProductsData?.chart && (
             <Chart
-              chartName="일별 출고수량"
+              chartName={i18n('chart.forwarded-count.title')}
               chartData={[
-                { dataName: '출고수량', data: Object.values(forwardedProductsData.chart) as unknown as number[] },
+                {
+                  dataName: i18n('chart.forwarded-count.title'),
+                  data: Object.values(forwardedProductsData.chart) as unknown as number[],
+                },
               ]}
               xaxisNames={Object.keys(forwardedProductsData.chart)}
             />
@@ -72,16 +80,16 @@ export default function Dashboard() {
           {isLoadingDefectiveDamageProductsData && !defectiveDamageProductsData && <ComponentLoading color="#222" />}
           {defectiveDamageProductsData?.chart && (
             <Chart
-              chartName="일별 파손/불량 수량"
+              chartName={i18n('chart.defective-damage-count.title')}
               chartData={[
                 {
-                  dataName: '파손 수량',
+                  dataName: i18n('chart.defective-damage-count.data.name.defective'),
                   data: Object.values(defectiveDamageProductsData.chart).map(
                     (data) => data.damage,
                   ) as unknown as number[],
                 },
                 {
-                  dataName: '불량 수량',
+                  dataName: i18n('chart.defective-damage-count.data.name.damage'),
                   data: Object.values(defectiveDamageProductsData.chart).map(
                     (data) => data.defective,
                   ) as unknown as number[],
