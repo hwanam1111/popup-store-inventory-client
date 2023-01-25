@@ -4,8 +4,7 @@ import * as XLSX from 'xlsx';
 
 interface UseExcelDownloadProps {
   searchDateTimezone: string;
-  searchStartDatetime: string | Date;
-  searchEndDatetime: string | Date;
+  searchDate: string;
   excelFilename: string;
   excelTitle: string[];
   excelInsertData: any[];
@@ -13,18 +12,14 @@ interface UseExcelDownloadProps {
 
 export default ({
   searchDateTimezone,
-  searchStartDatetime,
-  searchEndDatetime,
+  searchDate,
   excelFilename,
   excelTitle,
   excelInsertData,
 }: UseExcelDownloadProps) => {
   const excelFileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
   const excelFileExtension = '.xlsx';
-  const excelProvider = [
-    '정보 제공자 : (주)트레블씨투비',
-    `조회 기간 (타임존: ${searchDateTimezone}) : ${searchStartDatetime} ~ ${searchEndDatetime}`,
-  ];
+  const excelProvider = ['정보 제공자 : (주)트레블씨투비', `조회날짜: (${searchDateTimezone}) ${searchDate} `];
 
   const excelDownload = useCallback(() => {
     const ws = XLSX.utils.aoa_to_sheet([excelProvider, [], excelTitle]);

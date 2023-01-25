@@ -1,0 +1,21 @@
+{
+  "meta-title": "Dashboard",
+  "page-title": "Dashboard",
+  "chart": {
+    "revenue": {
+      "title": "Daily sales"
+    },
+    "forwarded-count": {
+      "title": "Shipping"
+    },
+    "defective-damage-count": {
+      "title": "Poor/Damage quantity",
+      "data": {
+        "name": {
+          "defective": "Poor Quantity",
+          "damage": "Breakdown"
+        }
+      }
+    }
+  }
+}

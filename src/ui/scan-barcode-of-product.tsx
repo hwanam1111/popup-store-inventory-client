@@ -7,6 +7,7 @@ import { CurrencyUnit } from '@apis/currency/entities/currency.entity';
 import dateToString from '@utils/date-to-string';
 import numberWithComma from '@utils/number-with-comma';
 import ComponentLoading from '@ui/loading-component';
+import { useEffect, useState } from 'react';
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +19,10 @@ const Container = styled.div`
   height: 100%;
 `;
 
+const BarcodeCount = styled.div``;
+
 const ProductImage = styled.img`
+  margin-top: 1rem;
   object-fit: cover;
   border-radius: 0.5rem;
   background-color: ${({ theme }) => theme.color.BG30};
@@ -85,9 +89,25 @@ export default function ScanBarcodeOfProduct({
   canceledCount,
 }: ScanBarcodeOfProductProps) {
   const { i18n } = useI18n(I18N_COMMON);
+  const [existScannedBarcode, setExistScannedBarcode] = useState<string>('');
+  const [sameScannedBarcodeCount, setSameScannedBarcodeCount] = useState<number>(0);
+  useEffect(() => {
+    if (barcode) {
+      setExistScannedBarcode(barcode);
+
+      if (existScannedBarcode === '' || existScannedBarcode === barcode) {
+        return setSameScannedBarcodeCount((prevState) => prevState + 1);
+      }
+
+      return setSameScannedBarcodeCount(1);
+    }
+  }, [barcode]);
 
   return (
     <Container>
+      <BarcodeCount>
+        {i18n('scan-barcode-of-product.same-scanned-barcode-count')} : {numberWithComma(sameScannedBarcodeCount)}
+      </BarcodeCount>
       {!isLoading && !isHaveScanProduct && (
         <>
           <ProductImage src="/images/blank-image.svg" />
