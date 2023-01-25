@@ -1,4 +1,25 @@
 {
   "meta-title": "자료 출력",
-  "page-title": "자료 출력"
+  "page-title": "자료 출력",
+  "call-data": {
+    "button": "데이터 불러오기 및 다운로드",
+    "error": {
+      "empty-date": "날짜를 선택해주세요."
+    },
+    "confirm": {
+      "title": "날짜의 데이터를 다운로드 하시겠습니까?",
+      "button": "다운로드"
+    }
+  },
+  "please-call-data": "날짜를 선택 후 데이터를 불러와주세요.",
+  "table": {
+    "th": {
+      "product-name": "상품명",
+      "barcode": "바코드번호",
+      "product-amount": "상품가격",
+      "sold-quantity": "판매 수량(출고)",
+      "defective-quantity": "불량 수량",
+      "damage-quantity": "파손 수량"
+    }
+  }
 }

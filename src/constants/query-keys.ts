@@ -14,6 +14,7 @@ export default {
         REVENUE: ['revenue'],
         FORWARDED_PRODUCTS_COUNT: ['forwarded_products_count'],
         DEFECTIVE_DAMAGE_PRODUCTS_COUNT: ['defective_damage_products_count'],
+        SYNTHESIS: ['synthesis'],
       },
     },
   },
