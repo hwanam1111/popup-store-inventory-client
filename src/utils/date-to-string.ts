@@ -9,6 +9,7 @@ export type ConvertStringType = 'hypen' | 'dot';
 interface DateToStringProps {
   date: Date;
   convertStringType: ConvertStringType;
+  convertTimezone?: boolean;
   addTime?: boolean;
   addTimeZoneCityName?: boolean;
 }
@@ -16,6 +17,7 @@ interface DateToStringProps {
 export default ({
   date,
   convertStringType,
+  convertTimezone = true,
   addTime = false,
   addTimeZoneCityName = false,
 }: DateToStringProps): string => {
@@ -25,10 +27,18 @@ export default ({
 
   switch (convertStringType) {
     case 'hypen':
-      convertedDate = moment.tz(date, timezone).format('YYYY-MM-DD HH:mm:ss');
+      if (convertTimezone) {
+        convertedDate = moment.tz(date, timezone).format('YYYY-MM-DD HH:mm:ss');
+      } else {
+        convertedDate = moment.tz(date, timezones[0].value).format('YYYY-MM-DD HH:mm:ss');
+      }
       break;
     case 'dot':
-      convertedDate = moment.tz(date, timezone).format('YYYY.MM.DD HH:mm:ss');
+      if (convertTimezone) {
+        convertedDate = moment.tz(date, timezone).format('YYYY.MM.DD HH:mm:ss');
+      } else {
+        convertedDate = moment.tz(date, timezones[0].value).format('YYYY.MM.DD HH:mm:ss');
+      }
       break;
     default:
       break;

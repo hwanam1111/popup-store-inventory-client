@@ -1,0 +1,25 @@
+{
+  "meta-title": "Data output",
+  "page-title": "Data output",
+  "call-data": {
+    "button": "Data load and download",
+    "error": {
+      "empty-date": "Please select the date."
+    },
+    "confirm": {
+      "title": "Would you like to download the data on the date?",
+      "button": "Download"
+    }
+  },
+  "please-call-data": "Select the date and load the data.",
+  "table": {
+    "th": {
+      "product-name": "product name",
+      "barcode": "Barcode number",
+      "product-amount": "Product price",
+      "sold-quantity": "Sales quantity (shipping)",
+      "defective-quantity": "Poor Quantity",
+      "damage-quantity": "Breakdown"
+    }
+  }
+}

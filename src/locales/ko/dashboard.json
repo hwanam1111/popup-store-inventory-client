@@ -1,4 +1,21 @@
 {
   "meta-title": "대시보드",
-  "page-title": "대시보드"
+  "page-title": "대시보드",
+  "chart": {
+    "revenue": {
+      "title": "일별 매출"
+    },
+    "forwarded-count": {
+      "title": "출고 수량"
+    },
+    "defective-damage-count": {
+      "title": "불량/파손 수량",
+      "data": {
+        "name": {
+          "defective": "불량 수량",
+          "damage": "파손 수량"
+        }
+      }
+    }
+  }
 }

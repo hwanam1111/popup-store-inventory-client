@@ -19,6 +19,7 @@
     "cannot-defective-damage-product": "Check damage/defective products can be selected after selecting a country."
   },
   "scan-barcode-of-product": {
+    "same-scanned-barcode-count": "Same Barcode Scanned Count",
     "placeholder": "The product scanned is displayed here.",
     "info": {
       "barcode": "Barcode number",
