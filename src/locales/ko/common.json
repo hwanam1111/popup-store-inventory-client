@@ -21,6 +21,7 @@
     "cannot-defective-damage-product": "파손/불량 상품 체크는 국가를 선택 후 가능합니다."
   },
   "scan-barcode-of-product": {
+    "same-scanned-barcode-count": "동일한 바코드 스캔 횟수",
     "placeholder": "이곳에 스캔된 상품이 표시됩니다.",
     "info": {
       "barcode": "바코드 번호",
