@@ -52,7 +52,7 @@ export default function ProductsList() {
   const { i18n: commonI18n } = useI18n(I18N_COMMON);
   const country = (query.country as string).replace(/\b[a-z]/, (text) => text.toUpperCase());
   const [page, onChangePage] = usePagination(1);
-  const limit = 30;
+  const limit = 15;
   const { data: productsData } = useFetchProducts({
     limit,
     page,
