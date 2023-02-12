@@ -15,6 +15,7 @@ import { useCallback, useState } from 'react';
 import EditProductQuantity from '@components/edit-product-quantity';
 import useDeleteProduct from '@apis/products/mutations/delete-product';
 import { sweetAlert, sweetConfirm } from '@libs/sweet-alert2';
+import Loading from '@ui/loading';
 
 const Container = styled.div`
   margin: 3rem auto 0 auto;
@@ -53,7 +54,7 @@ export default function ProductsList() {
   const country = (query.country as string).replace(/\b[a-z]/, (text) => text.toUpperCase());
   const [page, onChangePage] = usePagination(1);
   const limit = 15;
-  const { data: productsData } = useFetchProducts({
+  const { isLoading: isProductsLoading, data: productsData } = useFetchProducts({
     limit,
     page,
     ...(country !== 'All' && { sellingCountry: country as CountryName }),
@@ -145,6 +146,7 @@ export default function ProductsList() {
 
   return (
     <Container>
+      {isProductsLoading && <Loading theme="white" />}
       <MainSectionTitle title={i18n('page-title')} />
       <ContentBlock>
         {productsData &&
