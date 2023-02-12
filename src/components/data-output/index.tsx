@@ -124,7 +124,7 @@ export default function DataOutput() {
       productDefectiveCount: numberWithComma(outputData.productDefectiveCount),
       productDamageCount: numberWithComma(outputData.productDamageCount),
       totalRevenue: `${outputData.sellingCurrency} ${numberWithComma(
-        outputData.productAmount * outputData.productForwardCount,
+        outputData.productAmount * (outputData.productForwardCount - outputData.productForwardCancelCount),
       )}`,
     })),
     excelTitle: ['상품명', '바코드번호', '상품가격', '판매 수량(출고량)', '불량 수량', '파손 수량', '총 출고 매출'],
