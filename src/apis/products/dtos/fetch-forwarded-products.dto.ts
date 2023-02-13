@@ -5,6 +5,7 @@ import { ProductForwardEntity } from '@apis/products/entities/product-forward.en
 export interface FetchForwardedProductsInput extends PaginationInput {
   sellingCountry?: CountryName;
   productId?: number;
+  isOnlyMeData: boolean;
 }
 
 export interface FetchForwardedProductsOutput extends PaginationOutput {
