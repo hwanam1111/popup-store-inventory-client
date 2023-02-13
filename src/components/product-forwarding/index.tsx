@@ -8,7 +8,6 @@ import ForwardedProduct from '@components/product-forwarding/forwarded-product';
 import ForwardedProductsHistory from '@components/product-forwarding/forwarded-history';
 import useFetchForwardedProducts from '@apis/products/queries/fetch-forwarded-products.dto';
 import { CountryName } from '@apis/countries/entities/country.entity';
-import { useCallback, useState } from 'react';
 
 const Container = styled.div`
   margin: 3rem auto 0 auto;
@@ -21,36 +20,21 @@ const ContentBlock = styled.div`
   gap: 2rem;
 `;
 
-const OnlyMeButton = styled.button<{ onlyMe: boolean }>`
-  background-color: ${({ onlyMe }) => (onlyMe === true ? '#fff1f1' : 'unset')};
-  border: 1px solid #efefef;
-  border-radius: 0.25rem;
-  padding: 0.75rem 1.25rem;
-  margin-top: 1.25rem;
-`;
-
 export default function ProductForwarding() {
   const { i18n } = useI18n(I18N_PRODUCT_FORWARDING);
   const { query } = useRouter();
   const country = (query.country as string).replace(/\b[a-z]/, (text) => text.toUpperCase());
   const limit = 20;
-  const [onlyMe, setOnlyMe] = useState<boolean>(false);
-  const onOnlyMe = useCallback(() => {
-    setOnlyMe((prev) => !prev);
-  }, []);
   const { data: productsData, refetch } = useFetchForwardedProducts({
     limit,
     page: 1,
-    isOnlyMeData: onlyMe,
+    isOnlyMeData: true,
     ...(country !== 'All' && { sellingCountry: country as CountryName }),
   });
 
   return (
     <Container>
       <MainSectionTitle title={i18n('page-title')} />
-      <OnlyMeButton type="button" onClick={onOnlyMe} onlyMe={onlyMe}>
-        내가 출고한 정보만 보기
-      </OnlyMeButton>
       <ContentBlock>
         <ForwardedProduct refetchForwardedProducts={refetch} />
         {productsData?.forwardedProducts && (
