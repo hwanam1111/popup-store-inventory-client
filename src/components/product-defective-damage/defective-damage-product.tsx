@@ -20,6 +20,7 @@ import FormInputBlock from '@ui/form/form-input-block';
 import FormLabel from '@ui/form/form-label';
 import FormError from '@ui/form/form-error';
 import FormRadio from '@ui/form/form-radio';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 const FormOverlay = styled.div`
   position: fixed;
@@ -102,6 +103,11 @@ export default function DefectiveDamageProduct({ refetchDefectiveDamageProducts 
       setFormOpend(true);
     }
   }, [finalBarcode, isFetchProductLoading, fetchProductData?.product]);
+
+  const onCloseForm = useCallback(() => {
+    setFormOpend(false);
+    onResetBarcodeValue();
+  }, []);
 
   useEffect(() => {
     if (finalBarcode !== '' && fetchProductError) {
@@ -199,53 +205,55 @@ export default function DefectiveDamageProduct({ refetchDefectiveDamageProducts 
       />
       {formOpend && (
         <FormOverlay>
-          <Form onSubmit={handleSubmit(onSubmit)}>
-            <FormInputContainer>
-              <FormInputBlock>
-                <FormLabel label={i18n('form.forward-history-type.label')} required />
-                <FormRadioBlock>
-                  <FormRadio
-                    register={register('forwardHistoryType')}
-                    id="Defective"
-                    name="forwardHistoryType"
-                    value="Defective"
-                    label={i18n('form.forward-history-type.radio.defective')}
-                    readOnly={false}
-                    defaultChecked={false}
+          <OutsideClickHandler onOutsideClick={onCloseForm}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <FormInputContainer>
+                <FormInputBlock>
+                  <FormLabel label={i18n('form.forward-history-type.label')} required />
+                  <FormRadioBlock>
+                    <FormRadio
+                      register={register('forwardHistoryType')}
+                      id="Defective"
+                      name="forwardHistoryType"
+                      value="Defective"
+                      label={i18n('form.forward-history-type.radio.defective')}
+                      readOnly={false}
+                      defaultChecked={false}
+                    />
+                    <FormRadio
+                      register={register('forwardHistoryType')}
+                      id="Damage"
+                      name="forwardHistoryType"
+                      value="Damage"
+                      label={i18n('form.forward-history-type.radio.damage')}
+                      readOnly={false}
+                      defaultChecked={false}
+                    />
+                  </FormRadioBlock>
+                  {errors.forwardHistoryType?.type === 'required' && (
+                    <FormError message={i18n('form.forward-history-type.error.require')} />
+                  )}
+                </FormInputBlock>
+                <FormInputBlock>
+                  <FormLabel label={i18n('form.memo.label')} required />
+                  <Input
+                    required
+                    type="text"
+                    placeholder={i18n('form.memo.placeholder')}
+                    register={register('memo', {
+                      required: i18n('form.memo.error.require'),
+                    })}
                   />
-                  <FormRadio
-                    register={register('forwardHistoryType')}
-                    id="Damage"
-                    name="forwardHistoryType"
-                    value="Damage"
-                    label={i18n('form.forward-history-type.radio.damage')}
-                    readOnly={false}
-                    defaultChecked={false}
-                  />
-                </FormRadioBlock>
-                {errors.forwardHistoryType?.type === 'required' && (
-                  <FormError message={i18n('form.forward-history-type.error.require')} />
-                )}
-              </FormInputBlock>
-              <FormInputBlock>
-                <FormLabel label={i18n('form.memo.label')} required />
-                <Input
-                  required
-                  type="text"
-                  placeholder={i18n('form.memo.placeholder')}
-                  register={register('memo', {
-                    required: i18n('form.memo.error.require'),
-                  })}
-                />
-                {errors.memo?.type === 'required' && <FormError message={i18n('form.memo.error.require')} />}
-              </FormInputBlock>
-            </FormInputContainer>
-            <SubmitButton
-              isLoading={isDefectiveDamageProductLoading}
-              disabled={!isValid}
-              text={i18n('form.submit-button')}
-            />
-          </Form>
+                  {errors.memo?.type === 'required' && <FormError message={i18n('form.memo.error.require')} />}
+                </FormInputBlock>
+              </FormInputContainer>
+              <SubmitButton
+                isLoading={isDefectiveDamageProductLoading}
+                disabled={!isValid}
+                text={i18n('form.submit-button')}
+              />
+            </Form>
+          </OutsideClickHandler>
         </FormOverlay>
       )}
     </>
