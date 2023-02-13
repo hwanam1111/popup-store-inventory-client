@@ -52,6 +52,7 @@ export default function ForwardedProductsList() {
   const { data: forwardedHistoryData } = useFetchForwardedProducts({
     limit,
     page,
+    isOnlyMeData: false,
     ...(country !== 'All' && { sellingCountry: country as CountryName }),
   });
 
