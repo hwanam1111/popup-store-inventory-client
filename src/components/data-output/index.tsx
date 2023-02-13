@@ -121,13 +121,25 @@ export default function DataOutput() {
       barcode: outputData.barcode,
       productAmount: `${outputData.sellingCurrency} ${numberWithComma(outputData.productAmount)}`,
       productForwardCount: numberWithComma(outputData.productForwardCount),
+      productForwardCancelCount: numberWithComma(outputData.productForwardCancelCount),
+      finalProductForwardCount: numberWithComma(outputData.productForwardCount - outputData.productForwardCancelCount),
       productDefectiveCount: numberWithComma(outputData.productDefectiveCount),
       productDamageCount: numberWithComma(outputData.productDamageCount),
       totalRevenue: `${outputData.sellingCurrency} ${numberWithComma(
         outputData.productAmount * (outputData.productForwardCount - outputData.productForwardCancelCount),
       )}`,
     })),
-    excelTitle: ['상품명', '바코드번호', '상품가격', '판매 수량(출고량)', '불량 수량', '파손 수량', '총 출고 매출'],
+    excelTitle: [
+      '상품명',
+      '바코드번호',
+      '상품가격',
+      '판매 수량 (출고량)',
+      '출고 취소 수량',
+      '판매수량 출고량 - 출고 취소수량 (실제 출고 수량)',
+      '불량 수량',
+      '파손 수량',
+      '총 출고 매출',
+    ],
     searchDateTimezone: timezone,
   });
   useEffect(() => {

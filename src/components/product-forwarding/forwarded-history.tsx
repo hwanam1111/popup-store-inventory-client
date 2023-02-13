@@ -7,6 +7,7 @@ import useI18n from '@hooks/useI18n';
 import Table from '@ui/table';
 import numberWithComma from '@utils/number-with-comma';
 import dateToString from '@utils/date-to-string';
+import useFetchMe from '@apis/users/queries/fetch-me';
 
 const ContentBlock = styled.div`
   width: calc(100% - 250px - 2rem);
@@ -29,6 +30,10 @@ const ProductImage = styled(LazyLoadImage)`
   padding: 0.25rem;
 `;
 
+const Tr = styled.tr<{ isMe: boolean }>`
+  background-color: ${({ isMe }) => (isMe === true ? '#fff3f3' : 'unset')};
+`;
+
 const HaveNotProducts = styled.p``;
 
 interface ForwardedProductsHistoryProps {
@@ -37,6 +42,7 @@ interface ForwardedProductsHistoryProps {
 
 export default function ForwardedProductsHistory({ forwardedProducts }: ForwardedProductsHistoryProps) {
   const { i18n } = useI18n(I18N_PRODUCT_FORWARDING);
+  const { data: meData } = useFetchMe();
 
   return (
     <ContentBlock>
@@ -54,7 +60,7 @@ export default function ForwardedProductsHistory({ forwardedProducts }: Forwarde
           ]}
         >
           {forwardedProducts.map((product) => (
-            <tr key={product.id}>
+            <Tr key={product.id} isMe={meData?.me?.name === product.productForwardedUser.name}>
               <td>
                 <ProductImageBlock>
                   <ProductImage effect="blur" src={product.productImage} alt={product.productName} />
@@ -76,7 +82,7 @@ export default function ForwardedProductsHistory({ forwardedProducts }: Forwarde
                 {product.sellingCurrency} {numberWithComma(product.productAmount)}
               </td>
               <td>{product.productForwardedUser.name}</td>
-            </tr>
+            </Tr>
           ))}
         </Table>
       ) : (
